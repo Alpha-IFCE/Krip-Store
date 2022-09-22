@@ -1,0 +1,47 @@
+main{
+    background-color: var(--black);
+    background-image: url('../images/asfalt-light-texture.png');
+}
+
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 360px;
+    height: 60%;
+    min-height: 320px;
+    padding: 32px;
+    gap: 16px;
+    background-color: var(--white);
+}
+
+form input[type='email'], form input[type='password'], form input[type='submit']{
+    height: 48px;
+    padding: 4px 16px;
+    font-size: 1em;
+    color: var(--black);
+    background-color: var(--light-gray);
+}
+
+form input[type='submit']{
+    background-color: var(--salmon);
+    color: var(--white);
+    font-weight: 600;
+    margin-top: auto;
+}
+
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form div a{
+    text-decoration: none;
+    color: var(--dark-gray);
+}

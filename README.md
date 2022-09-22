@@ -7,7 +7,7 @@ Repositório do projeto que será desenvolvido durante a disciplina de Práticas
 - ### Login Page
 
   - [x] HTML
-  - [ ] CSS
+  - [x] CSS
 
 - ### Sing Up Page
   - [x] HTML
