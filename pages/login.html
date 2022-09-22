@@ -5,19 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../styles/header.css">
+
     <title>Krip Store</title>
 </head>
 <body>
 
     <header>
-        <div class="content">
-            <img id="logo" src="" alt="Logo">
-            <div id="search-bar">
-                <input type="text" placeholder="Buscar produtos">
-                <img id="search-icon" src="" alt="Lupa">
-            </div>
-            <a href="login.html">Login</a>
-            <a href="singup.html">Sing Up</a>
+        <div class="content" id="header">
+            <img id="logo" src="../images/logo.svg" alt="Logo">
+            <div id="search-box"></div>
+            <a href="login.html" class="last">Login</a>
+            <a href="singup.html" class="">Sing Up</a>
         </div>
     </header>
 
@@ -37,21 +36,8 @@
     </nav>
 
     <main>
-        <div class="content">
-            <div id="backgroun">
-                <img id="background-texture" src="" alt="">
-                <img id="background-color" src="" alt="">
-            </div>
-    
-            <form action="POST" onsubmit="()=>{}">
-                <input type="text" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Senha">
-
-                <a id="google-login">Google</a>
-                <a id="facebook-login">Facebook</a>
-
-                <input type="submit" value="ENTRAR">
-            </form>
+        <div class="content">    
+            <div id="form"></div>
         </div>
     </main>
 
@@ -60,6 +46,13 @@
 
         </div>
     </footer>
-    
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="../scripts/form-input.js"></script>
+    <script type="text/babel" src="../scripts/login-form.js"></script>
+    <script type="text/babel" src="../scripts/search-bar.js"></script>
 </body>
 </html>

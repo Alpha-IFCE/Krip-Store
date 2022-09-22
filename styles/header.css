@@ -1,0 +1,88 @@
+:root{
+    --black: #463F3A;
+    --dark-gray: #8A817C;
+    --light-gray: #BCB8B1;
+    --white: #F4F3EE;
+    --salmon: #E0AFA0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--white);
+}
+
+
+.content{
+    width: 100%;
+    height: 100%;
+    display: inherit;
+    margin: 0 80px;
+}
+
+header{
+    height: 4.5em;
+    width: 100vw;
+    max-height: 128px;
+    background-color: var(--black);
+    position: fixed;
+}
+
+#header{
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+#logo{
+    height: 80%;
+}
+
+#search-box{
+    background-color: var(--white);
+    width: 65%;
+    height: 50%;
+    border-radius: 24px;
+    padding: 0 16px 0 24px;
+}
+
+#search-bar{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+
+    background-image: url('../images/search-icon.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 28px;
+
+    font-size: 0.9em;
+    color: var(--black);
+}
+
+#header a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* #search-icon{
+    height: 60%;
+    padding-left: 8px;
+    border-left: 1px var(--dark-gray) solid;
+} */
+
