@@ -14,7 +14,7 @@ form {
     flex-direction: column;
     width: 80%;
     max-width: 360px;
-    height: 55%;
+    height: 80%;
     min-height: 320px;
     padding: 32px;
     gap: 16px;
@@ -22,6 +22,7 @@ form {
 }
 
 form input[type='email'], 
+form input[type='text'], 
 form input[type='password'], 
 form input[type='submit']{
     height: 48px;
@@ -36,8 +37,8 @@ form input[type='submit']{
     color: var(--white);
     font-weight: 600;
     margin-top: auto;
-    font-size: 1em;
     cursor: pointer;
+    font-size: 1em;
     transition: all ease 0.2s;
 }
 
@@ -45,17 +46,13 @@ form input[type='submit']:hover{
     background-color: #d68268;
 }
 
-form div {
-    display: flex;
-    justify-content: space-between;
-}
-
-form div a{
+form a{
     text-decoration: none;
+    align-self: center;
     color: var(--dark-gray);
     transition: all ease 0.2s;
 }
 
-form div a:hover{
+form a:hover{
     text-decoration: underline;
 }
