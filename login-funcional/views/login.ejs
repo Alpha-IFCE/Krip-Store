@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/login.css">
+
+    <title>Login</title>
+</head>
+<body>
+
+    <div id="header-navbar">
+        <header>
+            <div class="content" id="header">
+                <img id="logo" src="../images/logo.svg" alt="Logo">
+                <div id="search-box">
+                    <input type="text" placeholder="Busque por produtos" name="search-bar" id="search-bar">
+                    <img src="../images/search-icon.svg" alt="Search" id="search-icon">
+                </div>
+                <a href="login.html" class="last">Login</a>
+                <a href="signup.html" class="">Sign Up</a>
+            </div>
+        </header>
+    
+        <nav>
+            <div class="content" id="nav">
+                <ul>
+                    <li class=""><a href="" class="nav-links active">Home</a></li>
+                    <li><a href="" class="nav-links">Lançamentos</a></li>
+                    <li><a href="" class="nav-links">Ofertas</a></li>
+                    <li><a href="" class="nav-links">Camisas</a></li>
+                    <li><a href="" class="nav-links">Moletons</a></li>
+                    <li><a href="" class="nav-links">Calças</a></li>
+                    <li><a href="" class="nav-links">Acessórios</a></li>
+                    <li><a href="" class="nav-links">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="content" id="main">    
+            <form action="/login" method="post">
+                <h1><%= log %></h1>
+                <input type="email" name="email" id="emailInput" placeholder="Email" />
+                <input type="password" name="password" id="passwordInput" placeholder="Password" />
+                <input type="submit" value="ENTRAR" />
+                <div>
+                    <a href="">Recuperar Senha</a>
+                    <a href="/signup">Criar Conta</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="content">
+
+        </div>
+    </footer>
+    
+    <script>
+        /*
+        document.querySelector('#logo').addEventListener('click', e => {
+            console.log('Indo para index.html')
+        })
+        */
+        /*
+        document.querySelector('form').addEventListener('submit', e => {
+            console.log('Submit')
+            e.preventDefault()
+        })
+        */
+    </script>
+    
+</body>
+</html>

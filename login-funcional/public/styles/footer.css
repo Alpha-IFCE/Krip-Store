@@ -1,0 +1,100 @@
+footer{
+    width: 100%;
+    height: 40vh;
+    background-color: var(--black);
+}
+
+#footer{
+    padding-top: 24px;
+    display: flex;
+    gap: 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+#criadores{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-bottom: 24px;
+
+}
+
+#criadores h4{
+    font-size: 1em;
+}
+
+#criadores ul {
+    margin-top: auto;
+}
+
+#criadores ul li{
+    list-style: disc outside;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+#criadores ul li:not(#criadores ul:first-child){
+    margin-top: calc(1em * 0.8);
+}
+
+#contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid var(--white);
+    border-right: 1px solid var(--white);
+    width: 50%;
+    margin-bottom: 24px;
+}
+
+#contato #footer-logo{
+    width: 15%;
+}
+
+#contato #redes-sociais{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 12px;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+
+#contato #redes-sociais a{
+    width: 100%; 
+}
+
+#contato #redes-sociais a img{
+    width: 75%;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-bottom: 24px;
+}
+
+#info h4, #info ul{
+    text-align: end;
+}
+
+#info ul{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+#info ul li a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+#info ul li:not(#info ul:last-child){
+    /* margin-top: calc(1em * 1.05); */
+}
