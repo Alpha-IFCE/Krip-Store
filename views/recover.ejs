@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/login.css" />
 
-    <title>Login</title>
+    <title>Recuperar senha</title>
   </head>
   <body>
     <div id="header-navbar">
@@ -21,7 +21,7 @@
 
     <main>
       <div class="content" id="main">
-        <form action="/login" method="post">
+        <form action="/recover" method="post">
           <h1><%= log %></h1>
           <input
             type="email"
@@ -29,17 +29,7 @@
             id="emailInput"
             placeholder="Email"
           />
-          <input
-            type="password"
-            name="password"
-            id="passwordInput"
-            placeholder="Password"
-          />
-          <input type="submit" value="ENTRAR" />
-          <div>
-            <a href="/recover">Esqueceu a senha?</a>
-            <a href="/signup">Criar Conta</a>
-          </div>
+          <input type="submit" value="ENVIAR" />
         </form>
       </div>
     </main>
