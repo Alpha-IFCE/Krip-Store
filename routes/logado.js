@@ -9,7 +9,7 @@ const dbPassword = process.env.DB_PASS
 // const dbUser = 'krip'
 // const dbPassword = 'kripstore'
 
-const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.iipdz.mongodb.net/?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.fqkpjyz.mongodb.net/?retryWrites=true&w=majority`
 const client = new MongoClient(uri)
 
 router.get('/', function(req, res, next) {
