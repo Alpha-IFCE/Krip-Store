@@ -1,15 +1,18 @@
 require('dotenv').config()
 var express = require('express');
 var router = express.Router();
+const nodemailer = require('nodemailer');
 const crypto = require('crypto')
 
 const {MongoClient} = require('mongodb');
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
+const emailUser = process.env.EMAIL_USER
+const emailPass = process.env.EMAIL_PASS
+
 const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.iipdz.mongodb.net/?retryWrites=true&w=majority`
 const client = new MongoClient(uri)
-
 
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash('sha256');
@@ -41,7 +44,27 @@ router.post('/', (req, res) => {
 
       // Setting the auth token in cookies
       res.cookie('AuthToken', authToken);
-      
+
+      const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: emailUser, 
+                pass: emailPass
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        })
+
+      transporter.sendMail({
+        from: emailUser,
+        to: user.email,
+        subject: "Login",
+        text: `Login efetuado ${user.username}`
+      }).then(console.log).catch(console.error)
+    
       // Redirect user to the protected page
       res.redirect('/');
     } else {
@@ -49,7 +72,7 @@ router.post('/', (req, res) => {
         log: 'Email ou senha inválidos'
       })
     }
-  })
+  }).catch(console.error)
 });
 
 async function login(client, email, senha) {
