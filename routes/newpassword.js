@@ -30,6 +30,29 @@ router.post("/", (req, res) => {
     const hashedPassword = getHashedPassword(password);
     run(client, email, hashedPassword).catch(console.dir);
 
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: emailUser,
+        pass: emailPass,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    transporter
+      .sendMail({
+        from: emailUser,
+        to: email,
+        subject: "Login",
+        text: `Sua senha foi alterada. Caso tenha feito isso, desconsidere este aviso.`,
+      })
+      .then(console.log)
+      .catch(console.error);
+
     res.render("login", {
       log: "Recuperação completa! Agora faça login:",
     });

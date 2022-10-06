@@ -68,7 +68,6 @@ router.post("/", (req, res) => {
           .then(console.log)
           .catch(console.error);
 
-        // Redirect user to the protected page
         res.redirect("/");
       } else {
         res.render("login", {
