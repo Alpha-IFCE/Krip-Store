@@ -9,6 +9,6 @@ Repositório do projeto que será desenvolvido durante a disciplina de Práticas
   - [x] HTML
   - [x] CSS
 
-- ### Sing Up Page
+- ### Sign Up Page
   - [x] HTML
-  - [ ] CSS
+  - [x] CSS
