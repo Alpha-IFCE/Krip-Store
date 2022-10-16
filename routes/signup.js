@@ -1,4 +1,3 @@
-const { v4: uuid } = require('uuid');
 require("dotenv").config();
 let express = require("express");
 let router = express.Router();
@@ -6,7 +5,7 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
 const client = require('../client')
-let uid
+
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
 
@@ -78,12 +77,9 @@ router.post("/", (req, res) => {
 });
 
 async function register(client, email, username, hashedPassword) {
-  uid = uuid()
-  console.log(uid);
   try {
     await client.connect();
     await client.db("auth").collection("users").insertOne({
-      uid,
       username: username,
       email: email,
       password: hashedPassword,
