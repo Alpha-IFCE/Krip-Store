@@ -2,12 +2,7 @@ require("dotenv").config();
 var express = require("express");
 var router = express.Router();
 
-const { MongoClient } = require("mongodb");
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
-
-const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.fqkpjyz.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri);
+const client = require('../client')
 
 router.get("/", function (req, res, next) {
   getUsers(client).then((users) => console.log(JSON.stringify(users)));

@@ -4,15 +4,10 @@ let router = express.Router();
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
-const { MongoClient } = require("mongodb");
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
+const client = require('../client')
 
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
-
-const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.fqkpjyz.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri);
 
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash("sha256");
@@ -88,6 +83,7 @@ async function register(client, email, username, hashedPassword) {
       username: username,
       email: email,
       password: hashedPassword,
+      verified: false
     });
     console.log(`Novo usuário cadastrado`);
   } finally {
