@@ -1,4 +1,4 @@
-#Daniel: 
+#Daniel:
 -Construção e Adaptação do Banco de Dados em Firebase;
 -Escolha e Adaptação de template;
 -Flexibilidade do Tempo de programação;
