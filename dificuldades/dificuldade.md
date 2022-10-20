@@ -1,11 +1,15 @@
-#Daniel:
--Construção e Adaptação do Banco de Dados em Firebase;
--Escolha e Adaptação de template;
--Flexibilidade do Tempo de programação;
--Idealização do Produto;
--Adaptação das API's;
--Criação das Páginas de Compra;
+## Luiz:
+* Recuperação de senha com envio de email
+* Implementação do captcha no formulário
 
-#Jhonny
--Verificar se email pertence à uma conta google;
--Enviar método de recuperação de senha
+## Daniel:
+* Construção e Adaptação do Banco de Dados em Firebase;
+* Escolha e Adaptação de template;
+* Flexibilidade do Tempo de programação;
+* Idealização do Produto;
+* Adaptação das API's;
+* Criação das Páginas de Compra;
+
+## Jhonny
+* Verificar se email pertence à uma conta google;
+* Enviar método de recuperação de senha
