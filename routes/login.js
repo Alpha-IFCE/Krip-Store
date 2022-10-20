@@ -1,9 +1,9 @@
+
 require("dotenv").config();
 var express = require("express");
 var router = express.Router();
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
-
 
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;

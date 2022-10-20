@@ -1,3 +1,4 @@
+const { v4: uuid } = require('uuid');
 require("dotenv").config();
 let express = require("express");
 let router = express.Router();
@@ -5,6 +6,8 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
 const client = require('../client')
+
+let uid
 
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
@@ -31,7 +34,7 @@ router.post("/", (req, res) => {
     password !== "" ||
     confirmPassword !== ""
   ) {
-    checkUser(client, email).then((checked) => {
+    checkUser(client, email).then(async (checked) => {
       if (checked) {
         res.render("signup", {
           reg: "Usuário já cadastrado",
@@ -39,7 +42,7 @@ router.post("/", (req, res) => {
       } else {
         const hashedPassword = getHashedPassword(password);
 
-        register(client, email, username, hashedPassword);
+        await register(client, email, username, hashedPassword);
 
         res.render("login", {
           log: "Cadastro completo. Agora faça login",
@@ -63,10 +66,12 @@ router.post("/", (req, res) => {
             from: emailUser,
             to: email,
             subject: "Email de Cadastro",
-            text: `Parabens por se cadastrar ${username}`,
+            text: `Parabens por se cadastrar ${username}. Para verificar seu email, clique no link: 127.0.0.1:3000/verify?uid=${uid}`,
           })
           .then(console.log)
           .catch(console.error);
+
+        uid = null
       }
     });
   } else {
@@ -77,9 +82,11 @@ router.post("/", (req, res) => {
 });
 
 async function register(client, email, username, hashedPassword) {
+  uid = uuid()
   try {
     await client.connect();
     await client.db("auth").collection("users").insertOne({
+      uid,
       username: username,
       email: email,
       password: hashedPassword,
