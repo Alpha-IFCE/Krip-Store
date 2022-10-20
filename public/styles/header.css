@@ -7,7 +7,6 @@ header {
 
 #header {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: 24px;
@@ -25,7 +24,6 @@ header {
   border-radius: 24px;
   padding-left: 24px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin: 0 auto;
 }
@@ -51,8 +49,4 @@ header {
   color: var(--white);
   text-decoration: none;
   font-size: 1em;
-}
-
-.last {
-  margin-left: auto;
 }

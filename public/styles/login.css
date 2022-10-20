@@ -12,12 +12,13 @@ main{
 form {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+
     width: 80%;
     max-width: 360px;
     height: 55%;
     min-height: 320px;
     padding: 32px;
-    gap: 16px;
     background-color: var(--white);
 }
 
@@ -35,7 +36,6 @@ form input[type='submit']{
     background-color: var(--salmon);
     color: var(--white);
     font-weight: 600;
-    margin-top: auto;
     font-size: 1em;
     cursor: pointer;
     transition: all ease 0.2s;
@@ -43,6 +43,18 @@ form input[type='submit']{
 
 form input[type='submit']:hover{
     background-color: #d68268;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 form div {
