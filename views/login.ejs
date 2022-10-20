@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="stylesheet" href="../styles/header.css" />
+        <link rel="stylesheet" href="../styles/navbar.css" />
+        <link rel="stylesheet" href="../styles/footer.css" />
+        <link rel="stylesheet" href="../styles/login.css" />
+
+        <title>Login</title>
+        <script
+            src="https://www.google.com/recaptcha/api.js"
+            async
+            defer
+        ></script>
+    </head>
+
+    <body>
+        <div id="header-navbar">
+            <%- include('partials/header', {}); %> <%-
+            include('partials/navbar', {}); %>
+        </div>
+
+        <main>
+            <div class="content" id="main">
+                <form action="/login" method="post">
+                    <h1><%= log %></h1>
+                    <div class="form-inputs">
+                        <input
+                            type="email"
+                            name="email"
+                            id="emailInput"
+                            placeholder="Email"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            id="passwordInput"
+                            placeholder="Password"
+                        />
+                    </div>
+                    <!-- <div class="g-recaptcha" data-sitekey="6Lds1JUiAAAAAADqnGGWtLc_hf7aZbDgzowOQiM-"></div> -->
+
+                    <div class="form-options">
+                        <input type="submit" value="ENTRAR" />
+                        <div>
+                            <a href="/recover">Esqueceu a senha?</a>
+                            <a href="/signup">Criar Conta</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <%- include('partials/footer', {}); %>
+
+        <script>
+            /*
+        document.querySelector('#logo').addEventListener('click', e => {
+            console.log('Indo para index.html')
+        })
+        */
+            /*
+        document.querySelector('form').addEventListener('submit', e => {
+            console.log('Submit')
+            e.preventDefault()
+        })
+        */
+        </script>
+    </body>
+</html>
