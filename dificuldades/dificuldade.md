@@ -10,6 +10,11 @@
 * Adaptação das API's;
 * Criação das Páginas de Compra;
 
-## Jhonny
+## Jhonny:
 * Verificar se email pertence à uma conta google;
 * Enviar método de recuperação de senha
+
+## Caio:
+* Fazer o design e depois achar feio;
+* Não ter as imagens do design;
+* Trocar padding por margin no css e só descobrir um dia depois, quando já tava pra desistir.
