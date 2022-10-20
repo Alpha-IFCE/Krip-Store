@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página de teste</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/navbar.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+  </head>
+  <body>
+    <div id="header-navbar">
+      <%- include('partials/header', {}); %> <%- include('partials/navbar', {});
+      %>
+    </div>
+    
+    <main>
+    <div class="content" id="main">
+      <h1><%= messageTitle %></h1>
+      <p><%= welcomeMessage %></p>
+      <a href="<%= hrefI %>" <button> <%= messageIndex %> </button></a> <br>
+      <a href="/logado">Entre aqui, página que só dá pra entrar logado</a>
+    </div>
+    </main>
+
+    <%- include('partials/footer', {}); %>
+  </body>
+</html>
