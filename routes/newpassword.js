@@ -58,7 +58,7 @@ router.post("/", (req, res) => {
       .sendMail({
         from: emailUser,
         to: email,
-        subject: "Login",
+        subject: "Alteração de senha",
         text: `Sua senha foi alterada. Caso tenha feito isso, desconsidere este aviso.`,
       })
       .then(console.log)
