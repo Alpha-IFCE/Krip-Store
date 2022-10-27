@@ -17,14 +17,29 @@ const getHashedPassword = (password) => {
 };
 
 router.get("/", function (req, res, next) {
-  res.render("newpassword");
+  const { email, uid } = req.query
+
+  verifyUser(uid).then((result) => {
+    if (result.email == email) {
+      res.render("newpassword", {
+        log: "Digite a nova senha",
+        email,
+        uid
+      });
+    } else {
+      res.render("recover", {
+        log: "Link de recuperação inválido"
+      });
+    }
+  })
 });
 
 router.post("/", (req, res) => {
-  const { email, password, confirmPassword } = req.body;
+  const { uid, email, password, confirmPassword } = req.body;
+
   if (password === confirmPassword) {
     const hashedPassword = getHashedPassword(password);
-    run(client, email, hashedPassword).catch(console.dir);
+    updatePass(client, uid, hashedPassword).catch(console.dir);
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -55,16 +70,34 @@ router.post("/", (req, res) => {
   }
 });
 
-async function run(client, filter, newValue) {
+async function updatePass(client, filter, newPassword) {
   try {
     await client.connect();
     const resultado = await client
       .db("auth")
       .collection("users")
-      .updateOne({ email: filter }, { $set: { password: newValue } });
+      .updateOne({ uid: filter }, { $set: { password: newPassword } });
     console.log(
       `${resultado.matchedCount} document(s) matched the filter, updated ${resultado.modifiedCount} document(s)`
     );
+  } finally {
+    await client.close();
+  }
+}
+
+async function verifyUser(uid) {
+  try {
+    await client.connect();
+    const result = await client.db("auth").collection("users").findOne({
+      uid: uid
+    });
+    if (result !== null) {
+      console.log("beleza");
+      return result;
+    } else {
+      console.log("inválido");
+      return false;
+    }
   } finally {
     await client.close();
   }
