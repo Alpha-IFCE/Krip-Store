@@ -1,0 +1,40 @@
+:root {
+  --black: #463f3a;
+  --dark-gray: #8a817c;
+  --light-gray: #bcb8b1;
+  --white: #f4f3ee;
+  --salmon: #e0afa0;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+.content {
+  width: 90%;
+  height: 100%;
+  display: inherit;
+  margin: 0 auto;
+}
+
+#header-navbar {
+  width: 100%;
+  position: sticky;
+}
+
+main {
+  width: 100%;
+  height: calc(100vh - 18vh);
+}
