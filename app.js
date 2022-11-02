@@ -28,6 +28,7 @@ app.use("/logado", require("./routes/logado"));
 app.use("/logout", require("./routes/logout"));
 app.use("/recover", require("./routes/recover"));
 app.use("/newpassword", require("./routes/newpassword"));
+app.use("/verify", require("./routes/verify"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

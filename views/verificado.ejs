@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de teste</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/navbar.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+
+<body>
+    <div id="header-navbar">
+        <%- include('partials/header', {}); %>
+            <%- include('partials/navbar', {}); %>
+    </div>
+
+    <main>
+        <div class="content" id="main">
+            <h1>
+                <%= log %>
+            </h1>
+        </div>
+    </main>
+
+    <%- include('partials/footer', {}); %>
+</body>
+
+</html>

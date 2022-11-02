@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 var express = require("express");
 var router = express.Router();
@@ -20,7 +19,7 @@ const generateAuthToken = () => {
   return crypto.randomBytes(30).toString("hex");
 };
 
-router.get("/", function (req, res, next) {
+router.get("/", (req, res, next) => {
   res.render("login", {
     log: "Login",
   });

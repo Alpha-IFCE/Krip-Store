@@ -1,14 +1,9 @@
-require('dotenv').config()
 var express = require('express');
 var router = express.Router();
 
-
-// const dbUser = 'krip'
-// const dbPassword = 'kripstore'
-
 const client = require('../client')
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
   getUsers(client).then(users => console.log(JSON.stringify(users)))
   if (req.cookies['AuthToken']) {
     res.render('logado');

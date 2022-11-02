@@ -66,7 +66,7 @@ router.post("/", (req, res) => {
             from: emailUser,
             to: email,
             subject: "Email de Cadastro",
-            text: `Parabens por se cadastrar ${username}. Para verificar seu email, clique no link: 127.0.0.1:3000/verify?uid=${uid}`,
+            text: `Parabéns por se cadastrar ${username}. Para verificar seu email, clique no link: 127.0.0.1:3000/verify?email=${email}&uid=${uid}`,
           })
           .then(console.log)
           .catch(console.error);

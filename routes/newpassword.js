@@ -16,7 +16,7 @@ const getHashedPassword = (password) => {
   return hash;
 };
 
-router.get("/", function (req, res, next) {
+router.get("/", (req, res, next) => {
   const { email, uid } = req.query
 
   verifyUser(uid).then((result) => {

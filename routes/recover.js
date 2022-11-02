@@ -8,7 +8,7 @@ const emailPass = process.env.EMAIL_PASS;
 const client = require('../client')
 
 
-router.get("/", function (req, res, next) {
+router.get("/", (req, res, next) => {
   res.render("recover", {
     log: "Para recuperar sua senha, digite seu email: ",
     emailTypeRecover: "email",
