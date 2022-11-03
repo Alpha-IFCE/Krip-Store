@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    #e5e5e5 0%,
+    #a5a5a5 0.01%,
+    rgba(229, 229, 229, 0) 100%
+  );
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1050px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: calc(1440px - (151px * 2));
+  }
+}
+
+header {
+  padding-top: 65px;
+}
+
+.font-lato {
+  font-family: "Lato";
+  font-style: normal;
+}
+
+.header-font {
+  line-height: 19px;
+  letter-spacing: 0.115em;
+  font-weight: 900;
+  font-size: 1em;
+}
+
+#krip-logo {
+  width: fit-content;
+}
+
+input[type="submit"],
+#login-button,
+.form-button {
+  background-color: transparent;
+  border-color: black;
+  border-radius: 2px;
+  padding: 8px 24px;
+}
+
+input[type="submit"]:hover,
+#login-button:hover,
+.form-button:hover {
+  background-color: black;
+  border-color: black;
+  color: #fff;
+}
+
+#cart {
+  transition: all ease 300ms;
+  -o-transition: all ease 300ms;
+  -moz-transition: all ease 300ms;
+  -webkit-transition: all ease 300ms;
+}
+
+#cart:hover {
+  transform: translateY(-2px);
+}
+
+#cart span {
+  font-size: 8px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+}
+
+main {
+  margin-top: 64px;
+}
+
+footer {
+  background: rgba(165, 165, 165, 0.75);
+}
+
+#footer-img img {
+  padding: 0;
+}
+
+#footer-instagram {
+  padding: 1em 2em;
+  background-color: #fff;
+}
+
+#footer-instagram span {
+  font-size: 1.375em;
+  /* line-height: 26px; */
+  line-height: 118%;
+  background-color: transparent;
+}
+
+#footer-text .nav-link {
+  /* font-size: 16px;
+    line-height: 19px; */
+  font-size: 1em;
+  line-height: 118.75%;
+  letter-spacing: 0.115em;
+}
+
+#footer-text > span:last-child {
+  /* font-size: 14px;
+    line-height: 32px; */
+  font-size: 0.875em;
+  line-height: 229%;
+  opacity: 0.67;
+}

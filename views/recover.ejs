@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="../styles/main.css" />
-  <link rel="stylesheet" href="../styles/header.css" />
-  <link rel="stylesheet" href="../styles/navbar.css" />
-  <link rel="stylesheet" href="../styles/footer.css" />
-  <link rel="stylesheet" href="../styles/login.css" />
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
+    <link rel="stylesheet" href="../styles/bootstrap-grid.css" />
+    <link rel="stylesheet" href="../styles/mainlanding.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
 
-  <title>Recuperar senha</title>
-</head>
+    <script src="../scripts/bootstrap.js" defer></script>
 
-<body>
-  <div id="header-navbar">
-    <%- include('partials/header', {}); %>
-      <%- include('partials/navbar', {}); %>
-  </div>
+    <title>Recuperar senha</title>
+  </head>
 
-  <main>
-    <div class="content" id="main">
-      <form action="/recover" method="post">
-        <h1>
-          <%= log %>
-        </h1>
-        <input type="<%- emailTypeRecover %>" name="email" id="emailInput" placeholder="Email" />
-        <input type="<%- submitTypeRecover %>" value="ENVIAR" />
-      </form>
-    </div>
-  </main>
+  <body>
+    <div id="header-navbar"><%- include('partials/header', {}); %></div>
 
-  <%- include('partials/footer', {}); %>
+    <main>
+      <div class="content" id="main">
+        <form action="/recover" method="post">
+          <h2><%= log %></h2>
+          <input
+            type="<%- emailTypeRecover %>"
+            name="email"
+            id="emailInput"
+            placeholder="Email"
+          />
+          <div class="form-options">
+            <input
+              type="<%- submitTypeRecover %>"
+              id="login-button"
+              value="Enviar"
+            />
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <%- include('partials/footer', {}); %>
 
     <script>
       /*
@@ -48,6 +61,5 @@
         })
         */
     </script>
-</body>
-
+  </body>
 </html>

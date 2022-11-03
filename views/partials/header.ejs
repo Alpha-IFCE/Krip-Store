@@ -1,11 +1,20 @@
 <header>
-    <div class="content" id="header">
-        <img id="logo" src="../images/logo.svg" alt="Logo">
-        <div id="search-box">
-            <input type="text" placeholder="Buscar produtos" id="search-bar">
-            <img id="search-icon" src="../images/search-icon.svg" alt="Lupa">
+    <div class="container" id="div-header-container">
+        <div class="content d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+            <a id="krip-logo" href="/" class="d-flex align-items-center mb-2 col-md-3 mb-md-0 text-dark text-decoration-none text-uppercase font-lato fw-bolder fs-6">Krip</a>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark active" aria-current="page">Men</a></li>
+                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Women</a></li>
+                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Kids</a></li>
+                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Collection</a></li>
+                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Trends</a></li>
+            </ul>
+            <div class="d-flex align-items-center mb-2 mb-md-0 text-end">
+                <a id="cart" class="me-4 position-relative" href="">
+                    <img src="./images/cart-icon.svg" alt="Cart">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger p-1">1</span>
+                </a>
+            </div>
         </div>
-        <a href="/login" class="">LOGIN</a>
-        <a href="/signup" class="">SIGN UP</a>
     </div>
 </header>
