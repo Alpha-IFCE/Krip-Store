@@ -1,6 +1,4 @@
-# Krip-Store
-
-Repositório do projeto que será desenvolvido durante a disciplina de Práticas Profissionais III.
+<img title="Krip Store" src="https://user-images.githubusercontent.com/81436149/202262881-e085160e-d403-4c44-aea6-cdd2ea2710b0.png">
 
 ## Sobre o Projeto
 
