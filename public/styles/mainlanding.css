@@ -91,6 +91,8 @@ main {
 
 footer {
   background: rgba(165, 165, 165, 0.75);
+  color: white;
+  text-align: center;
 }
 
 #footer-img img {
