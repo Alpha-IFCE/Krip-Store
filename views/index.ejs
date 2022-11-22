@@ -12,14 +12,21 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+
     <link rel="stylesheet" href="../styles/bootstrap.css" />
     <link rel="stylesheet" href="../styles/bootstrap-grid.css" />
     <link rel="stylesheet" href="../styles/mainlanding.css" />
     <link rel="stylesheet" href="../styles/index.css" />
 
     <script src="../scripts/bootstrap.js" defer></script>
-    <script src="../scripts/multi-item-carousel.js" defer></script>
-    <script src="../scripts/section-5-products.js" defer></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+    <script type="text/javascript" src="../slick/slick.min.js" defer></script>
+
+    <script type="text/javascript" src="../scripts/index.js" defer></script>
 
     <link
       rel="stylesheet"
@@ -234,193 +241,39 @@
                 >See MORE</a
               >
             </div>
-            <div
-              id="section-4-carousel-div"
-              class="col-9 mx-auto my-auto justify-content-center"
-            >
-              <div class="row justify-content-center">
-                <div
-                  id="section-4-carousel"
-                  class="carousel slide"
-                  data-bs-ride="carousel"
-                  data-bs-touch="true"
-                >
-                  <div class="carousel-indicators"></div>
-
-                  <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img
-                            src="./images/empty.svg"
-                            alt=""
-                            class="card-img-top"
-                          />
-                          <div class="card-body">
-                            <span id="card-rate">
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-half card-rate-star"></i>
-                            </span>
-                            <h5
-                              class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                            >
-                              Pastel Long Sleeve
-                            </h5>
-                            <p class="card-text fs-6">
-                              <span
-                                class="text-decoration-line-through text-muted me-3"
-                                >R$220</span
-                              >
-                              <span class="font-lato fw-bold text-dark"
-                                >RS140</span
-                              >
-                            </p>
-                          </div>
-                        </div>
-                      </div>
+            <div id="section-4-carousel-div" class="col-lg-9 col-sm-12 justify-content-center">
+                <div class="justify-content-start align-items-center">
+                    <div id="section-4-carousel">
+                        <div class="slick-dots"></div>
+                        <% camisas.forEach(camisa => { %>
+                            <div class="slick-item col-3">
+                                <a href="" target="_blank" rel="">
+                                    <div class="product-card card">
+                                        <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                        <div class="card-body">
+                                            <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-half card-rate-star"></i>
+                                            </span>
+                                            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                            <p class="card-text fs-6">
+                                                <% if(camisa.promotion) { %>
+                                                    <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                                <% } else { %>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                                <% } %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <% }) %>
                     </div>
-                    <div class="carousel-item">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img
-                            src="./images/empty.svg"
-                            alt=""
-                            class="card-img-top"
-                          />
-                          <div class="card-body">
-                            <span id="card-rate">
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-half card-rate-star"></i>
-                            </span>
-                            <h5
-                              class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                            >
-                              Pastel Long Sleeve
-                            </h5>
-                            <p class="card-text fs-6">
-                              <span
-                                class="text-decoration-line-through text-muted me-3"
-                                >R$220</span
-                              >
-                              <span class="font-lato fw-bold text-dark"
-                                >RS140</span
-                              >
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img
-                            src="./images/empty.svg"
-                            alt=""
-                            class="card-img-top"
-                          />
-                          <div class="card-body">
-                            <span id="card-rate">
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-half card-rate-star"></i>
-                            </span>
-                            <h5
-                              class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                            >
-                              Pastel Long Sleeve
-                            </h5>
-                            <p class="card-text fs-6">
-                              <span
-                                class="text-decoration-line-through text-muted me-3"
-                                >R$220</span
-                              >
-                              <span class="font-lato fw-bold text-dark"
-                                >RS140</span
-                              >
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img
-                            src="./images/empty.svg"
-                            alt=""
-                            class="card-img-top"
-                          />
-                          <div class="card-body">
-                            <span id="card-rate">
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-half card-rate-star"></i>
-                            </span>
-                            <h5
-                              class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                            >
-                              Pastel Long Sleeve
-                            </h5>
-                            <p class="card-text fs-6">
-                              <span
-                                class="text-decoration-line-through text-muted me-3"
-                                >R$220</span
-                              >
-                              <span class="font-lato fw-bold text-dark"
-                                >RS140</span
-                              >
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img
-                            src="./images/empty.svg"
-                            alt=""
-                            class="card-img-top"
-                          />
-                          <div class="card-body">
-                            <span id="card-rate">
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-fill card-rate-star"></i>
-                              <i class="bi bi-star-half card-rate-star"></i>
-                            </span>
-                            <h5
-                              class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                            >
-                              Pastel Long Sleeve
-                            </h5>
-                            <p class="card-text fs-6">
-                              <span
-                                class="text-decoration-line-through text-muted me-3"
-                                >R$220</span
-                              >
-                              <span class="font-lato fw-bold text-dark"
-                                >RS140</span
-                              >
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -434,44 +287,49 @@
               Our Products
             </h2>
             <ul id="section-5-menu" class="nav justify-content-center mt-5">
-              <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                Hot
-              </li>
-              <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                On Sale
-              </li>
-              <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                Trending Now
-              </li>
-              <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                New Arrival
-              </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    Hot
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    On Sale
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    Trending Now
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    New Arrival
+                </li>
             </ul>
-            <div id="section-5-products" class="row">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="./images/empty.svg" alt="" class="card-img-top" />
-                  <div class="card-body">
-                    <span id="card-rate">
-                      <i class="bi bi-star-fill card-rate-star"></i>
-                      <i class="bi bi-star-fill card-rate-star"></i>
-                      <i class="bi bi-star-fill card-rate-star"></i>
-                      <i class="bi bi-star-fill card-rate-star"></i>
-                      <i class="bi bi-star-half card-rate-star"></i>
-                    </span>
-                    <h5
-                      class="card-title font-frank fw-bold text-dark text-capitalize my-3"
-                    >
-                      Pastel Long Sleeve
-                    </h5>
-                    <p class="card-text fs-6">
-                      <span class="text-decoration-line-through text-muted me-3"
-                        >R$220</span
-                      >
-                      <span class="font-lato fw-bold text-dark">RS140</span>
-                    </p>
-                  </div>
-                </div>
+            <div id="section-5-products" class="row justify-content-center">
+                <% camisas.forEach((camisa, index) => { %>
+                    <% if(index < 8) { %>
+                        <div class="col-sm-6 col-md-4 col-xxl-3">
+                            <a href="" target="_blank" rel="">
+                                <div class="product-card card">
+                                    <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-half card-rate-star"></i>
+                                        </span>
+                                        <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                        <p class="card-text fs-6">
+                                            <% if(camisa.promotion) { %>
+                                                <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                            <% } else { %>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                            <% } %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                <% }) %>
               </div>
             </div>
           </div>
@@ -538,213 +396,26 @@
               </p>
             </div>
             <div id="section-7-carousel-div">
-              <div class="row justify-content-center">
-                <div
-                  id="section-7-carousel"
-                  class="carousel slide"
-                  data-bs-ride="carousel"
-                  data-bs-touch="true"
-                >
-                  <div class="carousel-indicators"></div>
-                  <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                      <div class="col-md-5">
-                        <div class="card comment-card">
-                          <div class="card-body">
-                            <h4
-                              class="card-title font-lato fw-bolder text-dark"
-                            >
-                              Comfortable and met all my expectations! I ordered
-                              a medium and it fit perfectly
-                            </h4>
-                            <p class="card-text font-lato fw-bolder text-dark">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Ut lacus, auctor pretium ac ultrices. Dui
-                              lacus dignissim tincidunt urna, at enim tempo.
-                              Pellentesque amet Lorem ipsum dolor sit amet,
-                            </p>
-                          </div>
-                          <div class="card-footer bg-transparent">
-                            <img
-                              class="img-thumbnail rounded-circle"
-                              src="./images/empty.svg"
-                              alt=""
-                              width="76"
-                              height="76"
-                            />
-                            <h5
-                              class="comment-username font-lato fw-bold text-dark text-capitalize"
-                            >
-                              Anisa Zahra
-                            </h5>
-                            <h6
-                              class="comment-user-title font-lato fw-bold text-muted text-capitalize"
-                            >
-                              Founder milenial
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
+                <div class="row justify-content-center">
+                    <div id="section-7-carousel" class="">
+                        <div class="slick-dots"></div>
+                        <% for(x=0;x<5;x++) { %>
+                            <div class="col-5">
+                                <div class="card comment-card">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-lato fw-bolder text-dark">Comfortable and met all my expectations! I ordered a medium and it fit perfectly</h5>
+                                        <p class="card-text font-lato fw-bolder text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacus, auctor pretium ac ultrices. Dui lacus dignissim tincidunt urna, at enim tempo. Pellentesque amet Lorem ipsum dolor sit amet, </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <img class="img-thumbnail rounded-circle" src="./images/empty.svg" alt="" width="76" height="76">
+                                        <h5 class="comment-username font-lato fw-bold text-dark text-capitalize">Anisa Zahra</h6>
+                                        <h6 class="comment-user-title font-lato fw-bold text-muted text-capitalize">Founder milenial</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
                     </div>
-                    <div class="carousel-item">
-                      <div class="col-md-5">
-                        <div class="card comment-card">
-                          <div class="card-body">
-                            <h4
-                              class="card-title font-lato fw-bolder text-dark"
-                            >
-                              Comfortable and met all my expectations! I ordered
-                              a medium and it fit perfectly
-                            </h4>
-                            <p class="card-text font-lato fw-bolder text-dark">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Ut lacus, auctor pretium ac ultrices. Dui
-                              lacus dignissim tincidunt urna, at enim tempo.
-                              Pellentesque amet Lorem ipsum dolor sit amet,
-                            </p>
-                          </div>
-                          <div class="card-footer bg-transparent">
-                            <img
-                              class="img-thumbnail rounded-circle"
-                              src="./images/empty.svg"
-                              alt=""
-                              width="76"
-                              height="76"
-                            />
-                            <h5
-                              class="comment-username font-lato fw-bold text-dark text-capitalize"
-                            >
-                              Anisa Zahra
-                            </h5>
-                            <h6
-                              class="comment-user-title font-lato fw-bold text-muted text-capitalize"
-                            >
-                              Founder milenial
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-5">
-                        <div class="card comment-card">
-                          <div class="card-body">
-                            <h4
-                              class="card-title font-lato fw-bolder text-dark"
-                            >
-                              Comfortable and met all my expectations! I ordered
-                              a medium and it fit perfectly
-                            </h4>
-                            <p class="card-text font-lato fw-bolder text-dark">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Ut lacus, auctor pretium ac ultrices. Dui
-                              lacus dignissim tincidunt urna, at enim tempo.
-                              Pellentesque amet Lorem ipsum dolor sit amet,
-                            </p>
-                          </div>
-                          <div class="card-footer bg-transparent">
-                            <img
-                              class="img-thumbnail rounded-circle"
-                              src="./images/empty.svg"
-                              alt=""
-                              width="76"
-                              height="76"
-                            />
-                            <h5
-                              class="comment-username font-lato fw-bold text-dark text-capitalize"
-                            >
-                              Anisa Zahra
-                            </h5>
-                            <h6
-                              class="comment-user-title font-lato fw-bold text-muted text-capitalize"
-                            >
-                              Founder milenial
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-5">
-                        <div class="card comment-card">
-                          <div class="card-body">
-                            <h4
-                              class="card-title font-lato fw-bolder text-dark"
-                            >
-                              Comfortable and met all my expectations! I ordered
-                              a medium and it fit perfectly
-                            </h4>
-                            <p class="card-text font-lato fw-bolder text-dark">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Ut lacus, auctor pretium ac ultrices. Dui
-                              lacus dignissim tincidunt urna, at enim tempo.
-                              Pellentesque amet Lorem ipsum dolor sit amet,
-                            </p>
-                          </div>
-                          <div class="card-footer bg-transparent">
-                            <img
-                              class="img-thumbnail rounded-circle"
-                              src="./images/empty.svg"
-                              alt=""
-                              width="76"
-                              height="76"
-                            />
-                            <h5
-                              class="comment-username font-lato fw-bold text-dark text-capitalize"
-                            >
-                              Anisa Zahra
-                            </h5>
-                            <h6
-                              class="comment-user-title font-lato fw-bold text-muted text-capitalize"
-                            >
-                              Founder milenial
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="col-md-5">
-                        <div class="card comment-card">
-                          <div class="card-body">
-                            <h4
-                              class="card-title font-lato fw-bolder text-dark"
-                            >
-                              Comfortable and met all my expectations! I ordered
-                              a medium and it fit perfectly
-                            </h4>
-                            <p class="card-text font-lato fw-bolder text-dark">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Ut lacus, auctor pretium ac ultrices. Dui
-                              lacus dignissim tincidunt urna, at enim tempo.
-                              Pellentesque amet Lorem ipsum dolor sit amet,
-                            </p>
-                          </div>
-                          <div class="card-footer bg-transparent">
-                            <img
-                              class="img-thumbnail rounded-circle"
-                              src="./images/empty.svg"
-                              alt=""
-                              width="76"
-                              height="76"
-                            />
-                            <h5
-                              class="comment-username font-lato fw-bold text-dark text-capitalize"
-                            >
-                              Anisa Zahra
-                            </h5>
-                            <h6
-                              class="comment-user-title font-lato fw-bold text-muted text-capitalize"
-                            >
-                              Founder milenial
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -821,25 +492,25 @@
       async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HAS3LtUTP15yoCwdowheUOzAh6wgzv0&callback=initMap"
     ></script>
-
+    
     <script>
-      function initMap() {
-        const myLatLng = { lat: -3.8414190853930616, lng: -38.556129447476884 };
+        function initMap() {
+            const myLatLng = { lat: -3.7443059381343184, lng: -38.53603641018167 };
 
-        const map = new google.maps.Map(document.getElementById("map"), {
-          mapId: "f81104760c87ded6",
-          center: myLatLng,
-          zoom: 19,
-        });
+            const map = new google.maps.Map(document.getElementById("map"), {
+                mapId: "f81104760c87ded6",
+                center: myLatLng,
+                zoom: 19,
+            });
 
-        const marker = new google.maps.Marker({
-          position: myLatLng,
-          map,
-          title: "Krip Store",
-        });
-      }
+            const marker = new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Krip Store",
+            });
+        }
 
-      window.initMap = initMap;
+        window.initMap = initMap;
     </script>
   </body>
 </html>
