@@ -247,7 +247,7 @@
                         <div class="slick-dots"></div>
                         <% camisas.forEach(camisa => { %>
                             <div class="slick-item col-3">
-                                <a href="" target="_blank" rel="">
+                                <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
                                     <div class="product-card card">
                                         <img src="<%= camisa.img %>" alt="" class="card-img-top">
                                         <div class="card-body">
@@ -302,9 +302,9 @@
             </ul>
             <div id="section-5-products" class="row justify-content-center">
                 <% camisas.forEach((camisa, index) => { %>
-                    <% if(index < 8) { %>
-                        <div class="col-sm-6 col-md-4 col-xxl-3">
-                            <a href="" target="_blank" rel="">
+                    <% if(index < 6) { %>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
                                 <div class="product-card card">
                                     <img src="<%= camisa.img %>" alt="" class="card-img-top">
                                     <div class="card-body">

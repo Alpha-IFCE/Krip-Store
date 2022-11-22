@@ -215,13 +215,13 @@ main section {
     margin-left: 0;
 }
 
-#section-4 .slick-item a {
+a.product-card-link {
     border: none;
     padding: 0;
     text-decoration: none;
 }
 
-#section-4 .slick-item a:hover {
+a.product-card-link:hover {
     text-decoration: none;
 }
 
