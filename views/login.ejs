@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="stylesheet" href="../styles/main.css" />
-        <link rel="stylesheet" href="../styles/header.css" />
-        <link rel="stylesheet" href="../styles/navbar.css" />
-        <link rel="stylesheet" href="../styles/footer.css" />
-        <link rel="stylesheet" href="../styles/login.css" />
-
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="../styles/bootstrap.css">
+        <link rel="stylesheet" href="../styles/bootstrap-grid.css">
+        <link rel="stylesheet" href="../styles/mainlanding.css">
+        <link rel="stylesheet" href="../styles/login.css">
+    
+        <script src="../scripts/bootstrap.js" defer></script>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
         <title>Login</title>
-        <script
-            src="https://www.google.com/recaptcha/api.js"
-            async
-            defer
-        ></script>
     </head>
 
     <body>
         <div id="header-navbar">
-            <%- include('partials/header', {}); %> <%-
-            include('partials/navbar', {}); %>
+            <%- include('partials/header', {}); %>
         </div>
 
         <main>
@@ -46,7 +47,7 @@
                     <!-- <div class="g-recaptcha" data-sitekey="6Lds1JUiAAAAAADqnGGWtLc_hf7aZbDgzowOQiM-"></div> -->
 
                     <div class="form-options">
-                        <input type="submit" value="ENTRAR" />
+                        <input id="login-button"type="submit" value="Entrar" />
                         <div>
                             <a href="/recover">Esqueceu a senha?</a>
                             <a href="/signup">Criar Conta</a>

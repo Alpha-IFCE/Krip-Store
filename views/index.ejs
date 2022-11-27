@@ -1,27 +1,598 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
-    <title>Página de teste</title>
-    <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/navbar.css" />
-    <link rel="stylesheet" href="../styles/footer.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
+    <link rel="stylesheet" href="../styles/bootstrap-grid.css" />
+    <link rel="stylesheet" href="../styles/mainlanding.css" />
+    <link rel="stylesheet" href="../styles/index.css" />
+
+    <script src="../scripts/bootstrap.js" defer></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+    <script type="text/javascript" src="../slick/slick.min.js" defer></script>
+
+    <script type="text/javascript" src="../scripts/index.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <title>Krip Store</title>
   </head>
+
   <body>
-    <div id="header-navbar">
-      <%- include('partials/header', {}); %> <%- include('partials/navbar', {});
-      %>
-    </div>
-    
+    <header>
+      <div class="container" id="div-header-container">
+        <div
+          class="content d-flex flex-wrap align-items-center justify-content-center justify-content-md-between"
+        >
+          <a
+            id="krip-logo"
+            href=""
+            class="d-flex align-items-center mb-2 col-md-3 mb-md-0 text-dark text-decoration-none text-uppercase font-lato fw-bolder fs-6"
+            >Krip</a
+          >
+          <ul
+            class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li class="nav-item">
+              <a
+                href=""
+                class="nav-link px-2 font-lato header-font text-uppercase text-dark active"
+                aria-current="page"
+                >Men</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href=""
+                class="nav-link px-2 font-lato header-font text-uppercase text-dark"
+                >Women</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href=""
+                class="nav-link px-2 font-lato header-font text-uppercase text-dark"
+                >Kids</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href=""
+                class="nav-link px-2 font-lato header-font text-uppercase text-dark"
+                >Collection</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href=""
+                class="nav-link px-2 font-lato header-font text-uppercase text-dark"
+                >Trends</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex align-items-center mb-2 mb-md-0 text-end">
+            <a id="cart" class="me-4 position-relative" href="">
+              <img src="./images/cart-icon.svg" alt="Cart" />
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger p-1"
+                >1</span
+              >
+            </a>
+            <a
+              id="login-button"
+              href="<%= loginBtnLink %>"
+              class="btn btn-light"
+              ><%= LoginBtnMsg %></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main>
-    <div class="content" id="main">
-      <h1><%= messageTitle %></h1>
-      <p><%= welcomeMessage %></p>
-      <a href="<%= hrefI %>" <button> <%= messageIndex %> </button></a> <br>
-      <a href="/logado">Entre aqui, página que só dá pra entrar logado</a>
-    </div>
+      <section id="section-1">
+        <div class="container">
+          <div class="content row">
+            <div id="section-1-text" class="col-lg-6 col-md-12 text-md-left">
+              <h2 class="font-frank fw-bold text-capitalize text-dark">
+                Find the Best Fashion Style for You
+              </h2>
+              <p
+                class="font-lato fw-normal text-dark text-capitalize mt-3 mb-5"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                ullamcorper congue eros, eget tincidunt ipsum eleifend ut.
+              </p>
+              <a
+                href=""
+                class="btn btn-dark font-lato fw-bolder text-uppercase text-light position-relative"
+                >SHOP NOW</a
+              >
+            </div>
+            <img
+              class="col-lg-6 col-md-12 text-center"
+              src="./images/blusa-1.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <section id="section-2">
+        <div class="container">
+          <div class="content row">
+            <h2
+              class="text-center font-frank text-dark fw-bold text-capitalize"
+            >
+              New Collection
+            </h2>
+            <p class="text-center font-lato text-capitalize fw-normal mt-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              ullamcorper congue eros
+            </p>
+            <div id="section-2-images" class="row mt-5">
+              <div
+                class="col-xl-4 col-lg-6 col-sm-12 position-relative d-flex flex-collumn align-items-center justify-content-center"
+              >
+                <img src="./images/sweater.svg" alt="" />
+                <span
+                  class="font-lato fw-bolder position-absolute bottom-0 start-50 translate-middle d-flex align-items-center justify-content-center"
+                  >Sweater</span
+                >
+              </div>
+              <div
+                class="col-xl-4 col-lg-6 col-sm-12 position-relative d-flex flex-collumn align-items-center justify-content-center d-flex align-items-center justify-content-center"
+              >
+                <img src="./images/long-sleeve.svg" alt="" />
+                <span
+                  class="text-center font-lato fw-bolder position-absolute bottom-0 start-50 translate-middle d-flex align-items-center justify-content-center"
+                  >Long Sleeve</span
+                >
+              </div>
+              <div
+                class="col-xl-4 col-lg-6 col-sm-12 position-relative d-flex align-items-center justify-content-center"
+              >
+                <img src="./images/t-shirt.svg" alt="" />
+                <span
+                  class="font-lato fw-bolder position-absolute bottom-0 start-50 translate-middle d-flex align-items-center justify-content-center"
+                  >T-Shirt</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section-3">
+        <div class="container">
+          <div class="content row">
+            <img
+              class="col-lg-6 col-md-12 order-lg-1 order-md-2"
+              src="./images/blusa-2.svg"
+              alt=""
+            />
+            <div
+              id="section-3-text"
+              class="col-lg-6 col-md-12 order-lg-2 order-md-1"
+            >
+              <h2 class="font-frank fw-bold text-dark text-capitalize">
+                Best Fashion Since 2020
+              </h2>
+              <p
+                class="font-lato fw-normal text-dark text-capitalize mb-5 mt-3"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                ullamcorper congue eros, eget tincidunt ipsum eleifend ut orem
+                ipsum dolor sit amet consectetur adipiscing elit Sed ullamcorper
+                congue eros eleifend ut tincidunt ipsum .
+              </p>
+              <div id="section-3-stats" class="row mt-5">
+                <div class="col-4 text-center">
+                  <h3>2014</h3>
+                  <span>FiFash Founded</span>
+                </div>
+                <div class="col-4 text-center">
+                  <h3>8900+</h3>
+                  <span>Product Sold</span>
+                </div>
+                <div class="col-4 text-center">
+                  <h3>3105+</h3>
+                  <span>Best Reviews</span>
+                </div>
+              </div>
+            </div>
+            <div
+              id="section-3-back-retangle"
+              class="position-absolute bottom-0 start-0"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <section id="section-4">
+        <div class="container-fluid">
+          <div class="content row">
+            <div id="section-4-text" class="col-3">
+              <h2 class="font-frank fw-bold text-dark text-capitalize">
+                Best Seller Product
+              </h2>
+              <p
+                class="font-lato fw-normal text-dark text-capitalize mt-3 mb-5"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                ullamcorper congue eros
+              </p>
+              <a href="" class="btn font-lato fw-bold text-uppercase"
+                >See MORE</a
+              >
+            </div>
+            <div id="section-4-carousel-div" class="col-lg-9 col-sm-12 justify-content-center">
+                <div class="justify-content-start align-items-center">
+                    <div id="section-4-carousel">
+                        <div class="slick-dots"></div>
+                        <% camisas.forEach(camisa => { %>
+                            <div class="slick-item col-3">
+                                <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
+                                    <div class="product-card card">
+                                        <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                        <div class="card-body">
+                                            <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-fill card-rate-star"></i>
+                                                <i class="bi bi-star-half card-rate-star"></i>
+                                            </span>
+                                            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                            <p class="card-text fs-6">
+                                                <% if(camisa.promotion) { %>
+                                                    <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                                <% } else { %>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                                <% } %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section-5">
+        <div class="container">
+          <div class="content row">
+            <h2
+              class="font-frank fw-bold text-dark text-capitalize text-center"
+            >
+              Our Products
+            </h2>
+            <ul id="section-5-menu" class="nav justify-content-center mt-5">
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    Hot
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    On Sale
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    Trending Now
+                </li>
+                <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
+                    New Arrival
+                </li>
+            </ul>
+            <div id="section-5-products" class="row justify-content-center">
+                <% camisas.forEach((camisa, index) => { %>
+                    <% if(index < 6) { %>
+                        <div class="col-sm-6 col-md-4">
+                            <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
+                                <div class="product-card card">
+                                    <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-fill card-rate-star"></i>
+                                            <i class="bi bi-star-half card-rate-star"></i>
+                                        </span>
+                                        <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                        <p class="card-text fs-6">
+                                            <% if(camisa.promotion) { %>
+                                                <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                            <% } else { %>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                            <% } %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section-6">
+        <div class="container">
+          <div class="content row p-5">
+            <div id="section-6-text" class="col-md-6 align-self-center">
+              <h2 class="font-frank fw-bold text-dark text-capitalize my-4">
+                Deal of The Day
+              </h2>
+              <p class="font-lato fw-normal text-dark text-capitalize my-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                ullamcorper congue erosget tincidunt
+              </p>
+              <div
+                id="section-6-time"
+                class="row justify-content-start text-center my-4"
+              >
+                <div class="col-3 py-3">
+                  <h3 class="font-lato fw-bold text-dark text-capitalize">
+                    08
+                  </h3>
+                  <span class="font">Days</span>
+                </div>
+                <div class="col-3 py-3">
+                  <h3 class="font-lato fw-bold text-dark text-capitalize">
+                    09
+                  </h3>
+                  <span class="font-lato fw-normal text-dark text-capitalize"
+                    >Hours</span
+                  >
+                </div>
+                <div class="col-3 py-3">
+                  <h3 class="font-lato fw-bold text-dark text-capitalize">
+                    14
+                  </h3>
+                  <span class="font-lato fw-normal text-dark text-capitalize"
+                    >Min</span
+                  >
+                </div>
+              </div>
+              <a
+                href=""
+                class="btn font-lato fw-bolder text-light text-uppercase my-4"
+                >Shop Now</a
+              >
+            </div>
+            <img class="col-md-6" src="./images/blusa-1.svg" alt="" />
+          </div>
+        </div>
+      </section>
+      <section id="section-7">
+        <div class="container-fluid">
+          <div class="content row text-center">
+            <div id="section-7-text">
+              <h2 class="font-frank fw-bold text-dark text-capitalize">
+                What People Say About Us
+              </h2>
+              <p class="font-lato fw-normal text-dark text-capitalize">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                ullamcorper congue eros
+              </p>
+            </div>
+            <div id="section-7-carousel-div">
+                <div class="row justify-content-center">
+                    <div id="section-7-carousel" class="">
+                        <div class="slick-dots"></div>
+                        <% for(x=0;x<5;x++) { %>
+                            <div class="col-5">
+                                <div class="card comment-card">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-lato fw-bolder text-dark">Comfortable and met all my expectations! I ordered a medium and it fit perfectly</h5>
+                                        <p class="card-text font-lato fw-bolder text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacus, auctor pretium ac ultrices. Dui lacus dignissim tincidunt urna, at enim tempo. Pellentesque amet Lorem ipsum dolor sit amet, </p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <img class="img-thumbnail rounded-circle" src="./images/empty.svg" alt="" width="76" height="76">
+                                        <h5 class="comment-username font-lato fw-bold text-dark text-capitalize">Anisa Zahra</h6>
+                                        <h6 class="comment-user-title font-lato fw-bold text-muted text-capitalize">Founder milenial</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <%- include('partials/footer', {}); %>
+    <footer>
+      <!-- <div class="container-fluid">
+        <div id="footer-img" class="row row-cols-5">
+          <img src="./images/empty.svg" alt="" />
+          <img src="./images/empty.svg" alt="" />
+          <img src="./images/empty.svg" alt="" />
+          <img src="./images/empty.svg" alt="" />
+          <img src="./images/empty.svg" alt="" />
+        </div>
+      </div> -->
+
+      <div class="footer-upper">
+        <div class="bottom-map">
+          <h5>NOSSA LOJA FÍSICA</h5>
+          <div id="map" style="width: 100%; height: 400px"></div>
+          <p>Fortaleza, CE - Prefeito José Walter - Rua 95, 1031</p>
+        </div>
+
+        <div class="about-us">
+          <h5>SOBRE A LOJA</h5>
+          <ul>
+            <li>
+              <a href="">A equipe</a>
+            </li>
+            <li>
+              <a href="">Trabalhe conosco</a>
+            </li>
+            <li>
+              <a href="">Portal de Fornecedores</a>
+            </li>
+            <li>
+              <a href="">Programa de afiliados</a>
+            </li>
+            <li>
+              <a href="">Ações e projetos</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="help">
+          <h5>AJUDA</h5>
+          <ul>
+            <li>
+              <a href="">Trocas e devoluções</a>
+            </li>
+            <li>
+              <a href="">Atendimento</a>
+            </li>
+            <li>
+              <a href="">Política de privacidade</a>
+            </li>
+            <li>
+              <a href="">Mapa do site</a>
+            </li>
+            <li>
+              <a href="">Termos e condições de uso</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-us">
+          <h5>SIGA NOSSAS REDES SOCIAIS</h5>
+
+          <div class="social-medias">
+            <a
+              href="
+            "
+            >
+              <svg class="svg-icon" viewBox="0 0 20 20">
+                <path
+                  fill="none"
+                  d="M14.52,2.469H5.482c-1.664,0-3.013,1.349-3.013,3.013v9.038c0,1.662,1.349,3.012,3.013,3.012h9.038c1.662,0,3.012-1.35,3.012-3.012V5.482C17.531,3.818,16.182,2.469,14.52,2.469 M13.012,4.729h2.26v2.259h-2.26V4.729z M10,6.988c1.664,0,3.012,1.349,3.012,3.012c0,1.664-1.348,3.013-3.012,3.013c-1.664,0-3.012-1.349-3.012-3.013C6.988,8.336,8.336,6.988,10,6.988 M16.025,14.52c0,0.831-0.676,1.506-1.506,1.506H5.482c-0.831,0-1.507-0.675-1.507-1.506V9.247h1.583C5.516,9.494,5.482,9.743,5.482,10c0,2.497,2.023,4.52,4.518,4.52c2.494,0,4.52-2.022,4.52-4.52c0-0.257-0.035-0.506-0.076-0.753h1.582V14.52z"
+                ></path></svg
+            ></a>
+
+            <a href=""
+              ><svg class="svg-icon" viewBox="0 0 20 20">
+                <path
+                  fill="none"
+                  d="M18.258,3.266c-0.693,0.405-1.46,0.698-2.277,0.857c-0.653-0.686-1.586-1.115-2.618-1.115c-1.98,0-3.586,1.581-3.586,3.53c0,0.276,0.031,0.545,0.092,0.805C6.888,7.195,4.245,5.79,2.476,3.654C2.167,4.176,1.99,4.781,1.99,5.429c0,1.224,0.633,2.305,1.596,2.938C2.999,8.349,2.445,8.19,1.961,7.925C1.96,7.94,1.96,7.954,1.96,7.97c0,1.71,1.237,3.138,2.877,3.462c-0.301,0.08-0.617,0.123-0.945,0.123c-0.23,0-0.456-0.021-0.674-0.062c0.456,1.402,1.781,2.422,3.35,2.451c-1.228,0.947-2.773,1.512-4.454,1.512c-0.291,0-0.575-0.016-0.855-0.049c1.588,1,3.473,1.586,5.498,1.586c6.598,0,10.205-5.379,10.205-10.045c0-0.153-0.003-0.305-0.01-0.456c0.7-0.499,1.308-1.12,1.789-1.827c-0.644,0.28-1.334,0.469-2.06,0.555C17.422,4.782,17.99,4.091,18.258,3.266"
+                ></path></svg
+            ></a>
+
+            <a href=""
+              ><svg class="svg-icon" viewBox="0 0 20 20">
+                <path
+                  fill="none"
+                  d="M9.426,7.625h0.271c0.596,0,1.079-0.48,1.079-1.073V4.808c0-0.593-0.483-1.073-1.079-1.073H9.426c-0.597,0-1.079,0.48-1.079,1.073v1.745C8.347,7.145,8.83,7.625,9.426,7.625 M9.156,4.741c0-0.222,0.182-0.402,0.404-0.402c0.225,0,0.405,0.18,0.405,0.402V6.62c0,0.222-0.181,0.402-0.405,0.402c-0.223,0-0.404-0.181-0.404-0.402V4.741z M12.126,7.625c0.539,0,1.013-0.47,1.013-0.47v0.403h0.81V3.735h-0.81v2.952c0,0-0.271,0.335-0.54,0.335c-0.271,0-0.271-0.202-0.271-0.202V3.735h-0.81v3.354C11.519,7.089,11.586,7.625,12.126,7.625 M6.254,7.559H7.2v-2.08l1.079-2.952H7.401L6.727,4.473L6.052,2.527H5.107l1.146,2.952V7.559z M11.586,12.003c-0.175,0-0.312,0.104-0.405,0.204v2.706c0.086,0.091,0.213,0.18,0.405,0.18c0.405,0,0.405-0.451,0.405-0.451v-2.188C11.991,12.453,11.924,12.003,11.586,12.003 M14.961,8.463c0,0-2.477-0.129-4.961-0.129c-2.475,0-4.96,0.129-4.96,0.129c-1.119,0-2.025,0.864-2.025,1.93c0,0-0.203,1.252-0.203,2.511c0,1.252,0.203,2.51,0.203,2.51c0,1.066,0.906,1.931,2.025,1.931c0,0,2.438,0.129,4.96,0.129c2.437,0,4.961-0.129,4.961-0.129c1.117,0,2.024-0.864,2.024-1.931c0,0,0.202-1.268,0.202-2.51c0-1.268-0.202-2.511-0.202-2.511C16.985,9.328,16.078,8.463,14.961,8.463 M7.065,10.651H6.052v5.085H5.107v-5.085H4.095V9.814h2.97V10.651z M9.628,15.736h-0.81v-0.386c0,0-0.472,0.45-1.012,0.45c-0.54,0-0.606-0.515-0.606-0.515v-3.991h0.809v3.733c0,0,0,0.193,0.271,0.193c0.27,0,0.54-0.322,0.54-0.322v-3.604h0.81V15.736z M12.801,14.771c0,0,0,1.03-0.742,1.03c-0.455,0-0.73-0.241-0.878-0.429v0.364h-0.876V9.814h0.876v1.92c0.135-0.142,0.464-0.439,0.878-0.439c0.54,0,0.742,0.45,0.742,1.03V14.771z M15.973,12.39v1.287h-1.688v0.965c0,0,0,0.451,0.405,0.451s0.405-0.451,0.405-0.451v-0.45h0.877v0.708c0,0-0.136,0.901-1.215,0.901c-1.08,0-1.282-0.901-1.282-0.901v-2.51c0,0,0-1.095,1.282-1.095S15.973,12.39,15.973,12.39 M14.69,12.003c-0.405,0-0.405,0.45-0.405,0.45v0.579h0.811v-0.579C15.096,12.453,15.096,12.003,14.69,12.003"
+                ></path></svg
+            ></a>
+
+            <a href=""
+              ><svg class="svg-icon" viewBox="0 0 20 20">
+                <path
+                  fill="none"
+                  d="M11.344,5.71c0-0.73,0.074-1.122,1.199-1.122h1.502V1.871h-2.404c-2.886,0-3.903,1.36-3.903,3.646v1.765h-1.8V10h1.8v8.128h3.601V10h2.403l0.32-2.718h-2.724L11.344,5.71z"
+                ></path></svg
+            ></a>
+          </div>
+
+          <button>Nos contate</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <ul
+          class="nav col-12 col-md-auto py-5 justify-content-center mb-md-0 alin"
+        >
+          <li class="nav-item">
+            <a
+              href=""
+              class="nav-link px-2 font-lato fw-bolder header-font text-uppercase text-light"
+              >Men</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href=""
+              class="nav-link px-2 font-lato fw-bolder header-font text-uppercase text-light"
+              >Women</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href=""
+              class="nav-link px-2 font-lato fw-bolder header-font text-uppercase text-light"
+              >Kids</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href=""
+              class="nav-link px-2 font-lato fw-bolder header-font text-uppercase text-light"
+              >Collection</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href=""
+              class="nav-link px-2 font-lato fw-bolder header-font text-uppercase text-light"
+              >Trends</a
+            >
+          </li>
+        </ul>
+        <span
+          id="footer-credits"
+          class="font-lato fw-normal text-light text-capitalize y-3"
+          >© 2022 KRIP. All Right Reserved</span
+        >
+      </div>
+    </footer>
+
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9HAS3LtUTP15yoCwdowheUOzAh6wgzv0&callback=initMap"
+    ></script>
+    
+    <script>
+        function initMap() {
+            const myLatLng = { lat: -3.7443059381343184, lng: -38.53603641018167 };
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: myLatLng,
+          zoom: 19,
+        });
+
+            const marker = new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Krip Store",
+            });
+        }
+
+        window.initMap = initMap;
+    </script>
   </body>
 </html>
