@@ -13,6 +13,22 @@ body {
   );
 }
 
+.svg-icon {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: white;
+}
+
+.svg-icon circle {
+  stroke: white;
+  stroke-width: 1;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1050px;
@@ -90,25 +106,77 @@ main {
 }
 
 footer {
-  background: rgba(165, 165, 165, 0.75);
+  background-color: #777777;
   color: white;
   text-align: center;
 }
 
+.footer-upper {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.bottom-map {
+  flex: 1;
+}
+
+.contact-us {
+  flex: 1;
+}
+
+.help {
+  flex: 1;
+}
+
+.about-us {
+  flex: 1;
+}
+
+.footer-upper ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-upper ul li {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.footer-upper ul li a {
+  list-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  background-color: #4d4d4d;
+}
+
+.social-medias {
+  display: flex;
+  justify-content: center;
+  padding: 20px ;
+  gap: 20px;
+}
+
+.contact-us button {
+  width: 250px;
+  color: white;
+  padding: 10px;
+  background-color: #777777;
+  border: 1px solid white;
+}
+
+.contact-us button:hover {
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+}
+
 #footer-img img {
   padding: 0;
-}
-
-#footer-instagram {
-  padding: 1em 2em;
-  background-color: #fff;
-}
-
-#footer-instagram span {
-  font-size: 1.375em;
-  /* line-height: 26px; */
-  line-height: 118%;
-  background-color: transparent;
 }
 
 #footer-text .nav-link {
