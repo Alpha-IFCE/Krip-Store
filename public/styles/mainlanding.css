@@ -11,6 +11,7 @@ body {
     #a5a5a5 0.01%,
     rgba(229, 229, 229, 0) 100%
   );
+  overflow-x: hidden;
 }
 
 .svg-icon {
@@ -62,7 +63,9 @@ header {
 }
 
 input[type="submit"],
-#login-button,
+#login-button, 
+#logout-button,
+.drop-btn,
 .form-button {
   background-color: transparent;
   border-color: black;
@@ -71,11 +74,20 @@ input[type="submit"],
 }
 
 input[type="submit"]:hover,
-#login-button:hover,
+#login-button:hover, 
+#logout-button:hover,
+.drop-btn:hover,
+.drop-btn + .drop-btn:focus-visible,
+.drop-btn + .drop-btn:active,
 .form-button:hover {
   background-color: black;
   border-color: black;
   color: #fff;
+  box-shadow: 0;
+}
+
+.drop-btn {
+    font-size: 0.875em;
 }
 
 #cart {

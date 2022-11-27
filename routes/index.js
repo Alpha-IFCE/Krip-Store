@@ -12,27 +12,39 @@ const getData = async() => {
 }
 
 
-router.get("/", function (req, res, next) {
+// router.get("/", function (req, res, next) {
     
-    getProdutos().then((produtos) => {
-        const produtosForCarousel = produtos.slice(0, 6)
+//     getProdutos().then((produtos) => {
+//         const produtosForCarousel = produtos.slice(0, 6)
 
-
-        if (req.cookies["AuthToken"]) {
-            res.render("index", {
-                LoginBtnMsg: "Logout",
-                loginBtnLink: "/logout",
-                produtos: produtosForCarousel
-            });
-        } else {
-            res.render("index", {
-                LoginBtnMsg: "Login",
-                loginBtnLink: "/login",
-                produtos: produtosForCarousel
-            });
-        }
-    })
+//         if (req.cookies["AuthToken"]) {
+//             res.render("index", {
+//                 LoginBtnMsg: "Logout",
+//                 loginBtnLink: "/logout",
+//                 produtos: produtosForCarousel
+//             });
+//         } else {
+//             res.render("index", {
+//                 LoginBtnMsg: "Login",
+//                 loginBtnLink: "/login",
+//                 produtos: produtosForCarousel
+//             });
+//         }
+//     })
     
+// });
+
+router.get("/", async (req, res, next) => {
+    const produtos = await getProdutos()
+
+    const produtosForCarousel = produtos.slice(0, 6)
+
+    const user = global.authTokens[req.cookies['AuthToken']]
+
+    res.render("index", {
+        user,
+        produtos: produtosForCarousel
+    });
 });
 
 const getProdutos = async() => {

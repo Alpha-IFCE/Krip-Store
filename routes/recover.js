@@ -9,16 +9,22 @@ const client = require('../client')
 
 
 router.get("/", (req, res, next) => {
+
+    const user = global.authTokens[req.cookies['AuthToken']]
+
   res.render("recover", {
     log: "Para recuperar sua senha, digite seu email: ",
     emailTypeRecover: "email",
-    submitTypeRecover: "submit"
+    submitTypeRecover: "submit",
+    user
   });
 });
 
 router.post("/", (req, res) => {
   let uid
   const { email } = req.body;
+  const user = global.authTokens[req.cookies['AuthToken']]
+
 
   checkUser(client, email).then((checked) => {
     if (checked) {
@@ -50,13 +56,15 @@ router.post("/", (req, res) => {
       res.render("recover", {
         log: "Email de recuperação de senha enviado",
         emailTypeRecover: "hidden",
-        submitTypeRecover: "hidden"
+        submitTypeRecover: "hidden",
+        user
       })
     } else {
       res.render("recover", {
         log: "Email não cadastrado!",
         emailTypeRecover: "email",
-        submitTypeRecover: "submit"
+        submitTypeRecover: "submit",
+        user
       });
     }
   });

@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="../styles/bootstrap.css">
-        <link rel="stylesheet" href="../styles/bootstrap-grid.css">
+        <!-- <link rel="stylesheet" href="../styles/bootstrap-grid.css"> -->
         <link rel="stylesheet" href="../styles/mainlanding.css">
         <link rel="stylesheet" href="../styles/login.css">
     
@@ -22,9 +22,8 @@
     </head>
 
     <body>
-        <div id="header-navbar">
-            <%- include('partials/header', {}); %>
-        </div>
+        <%- include('partials/header', {user}); %>
+        
 
         <main>
             <div class="content" id="main">

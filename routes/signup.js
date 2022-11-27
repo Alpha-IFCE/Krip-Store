@@ -19,13 +19,19 @@ const getHashedPassword = (password) => {
 };
 
 router.get("/", function (req, res, next) {
+    const user = global.authTokens[req.cookies['AuthToken']]
+
   res.render("signup", {
     reg: "Cadastro",
+    user
   });
 });
 
 router.post("/", (req, res) => {
   const { email, username, password, confirmPassword } = req.body;
+
+  const user = global.authTokens[req.cookies['AuthToken']]
+
 
   if (
     password === confirmPassword ||
@@ -38,6 +44,7 @@ router.post("/", (req, res) => {
       if (checked) {
         res.render("signup", {
           reg: "Usuário já cadastrado",
+          user
         });
       } else {
         const hashedPassword = getHashedPassword(password);
@@ -46,6 +53,7 @@ router.post("/", (req, res) => {
 
         res.render("login", {
           log: "Cadastro completo. Agora faça login",
+          user
         });
 
         const transporter = nodemailer.createTransport({
@@ -77,6 +85,7 @@ router.post("/", (req, res) => {
   } else {
     res.render("signup", {
       reg: "Senha não corresponde ou campos vazios",
+      user
     });
   }
 });

@@ -1,20 +1,53 @@
 <header>
     <div class="container" id="div-header-container">
         <div class="content d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-            <a id="krip-logo" href="/" class="d-flex align-items-center mb-2 col-md-3 mb-md-0 text-dark text-decoration-none text-uppercase font-lato fw-bolder fs-6">Krip</a>
+            <a id="krip-logo" href="/" class="d-flex align-items-center mb-2 col-md-3 mb-md-0 text-dark text-decoration-none text-uppercase font-lato fw-bolder fs-6" >Krip</a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark active" aria-current="page">Men</a></li>
-                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Women</a></li>
-                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Kids</a></li>
-                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Collection</a></li>
-                <li class="nav-item"><a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Trends</a></li>
+                <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Masculino</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Feminino</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Infantil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Pesquisar</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="" class="nav-link px-2 font-lato header-font text-uppercase text-dark">Trends</a>
+                </li> -->
             </ul>
             <div class="d-flex align-items-center mb-2 mb-md-0 text-end">
-                <a id="cart" class="me-4 position-relative" href="">
-                    <img src="./images/cart-icon.svg" alt="Cart">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger p-1">1</span>
-                </a>
-            </div>
+                <% if(!user) { %>
+                    <div id="no-logged-options">
+                        <a id="login-button" href="/login" class="btn btn-light">Login</a>
+                    </div>
+                <% } else {%>
+                    <div id="logged-options" class="">
+                        <a id="cart" class="me-4 position-relative" href="">
+                            <img src="./images/cart-icon.svg" alt="Cart" />
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger p-1">1</span>
+                        </a>
+                        
+                        <div class="btn-group dropdown-center">
+                            <button class="btn btn-light drop-btn font-lato header-font text-decoration-none text-uppercase dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <%= user.username %>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/logout">Perfil</a></li>
+                                <li><a class="dropdown-item" href="/logout">Carrinho</a></li>
+                                <li><a class="dropdown-item" href="/logout">Configurações</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
+                </div>
         </div>
     </div>
 </header>

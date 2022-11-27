@@ -20,9 +20,12 @@ const generateAuthToken = () => {
 };
 
 router.get("/", (req, res, next) => {
-  res.render("login", {
-    log: "Login",
-  });
+  
+    const user = global.authTokens[req.cookies['AuthToken']]
+    res.render("login", {
+        log: "Login",
+        user
+    });
 });
 
 router.post("/", (req, res) => {

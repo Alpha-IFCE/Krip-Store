@@ -35,6 +35,7 @@ async function main(){
             let newProduct = {
                 name: faker.commerce.productName(),
                 rate: faker.datatype.float({min: 0.0, max: 5.0, precision: 0.1}),
+                description: faker.commerce.productDescription(),
                 price,
                 promotion: _.sample([0,1,2,3]) === 0 ? faker.commerce.price(
                     (parseFloat(price.slice(2)) * 0.5),

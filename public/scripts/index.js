@@ -1,8 +1,12 @@
 window.onload = () => {
+    if(document.cookie){
+        console.log(document.cookie.indexOf('AuthToken') > -1)
+    }
+
     $('#section-4-carousel').slick({
         centerMode: true,
         centerPadding: '60px',
-        slidesToShow: 3,
+        slidesToShow: 2,
         arrows: false,
         dots: true,
         responsive: [

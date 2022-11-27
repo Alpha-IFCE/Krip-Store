@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
 app.use("/signup", require("./routes/signup"));
-app.use("/logado", require("./routes/logado"));
+// app.use("/logado", require("./routes/logado"));
 app.use("/logout", require("./routes/logout"));
 app.use("/recover", require("./routes/recover"));
 app.use("/newpassword", require("./routes/newpassword"));

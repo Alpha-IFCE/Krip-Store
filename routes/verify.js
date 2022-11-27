@@ -6,15 +6,19 @@ const client = require('../client')
 router.get("/", (req, res, next) => {
     const { email, uid } = req.query
 
+    const user = global.authTokens[req.cookies['AuthToken']]
+
     checkUser(uid).then((result) => {
         if (result.email == email) {
             verifyUser(client, uid, true).catch(console.dir);
             res.render("verificado", {
                 log: "Sua conta foi verificada",
+                user
             });
         } else {
             res.render("recover", {
-                log: "Link de verificação inválido"
+                log: "Link de verificação inválido",
+                user
             });
         }
     })

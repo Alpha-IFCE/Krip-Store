@@ -19,16 +19,20 @@ const getHashedPassword = (password) => {
 router.get("/", (req, res, next) => {
   const { email, uid } = req.query
 
+  const user = global.authTokens[req.cookies['AuthToken']]
+
   verifyUser(uid).then((result) => {
     if (result.email == email) {
       res.render("newpassword", {
         log: "Digite a nova senha",
         email,
-        uid
+        uid,
+        user
       });
     } else {
       res.render("recover", {
-        log: "Link de recuperação inválido"
+        log: "Link de recuperação inválido",
+        user
       });
     }
   })
@@ -36,6 +40,8 @@ router.get("/", (req, res, next) => {
 
 router.post("/", (req, res) => {
   const { uid, email, password, confirmPassword } = req.body;
+  
+  const user = global.authTokens[req.cookies['AuthToken']]
 
   if (password === confirmPassword) {
     const hashedPassword = getHashedPassword(password);
@@ -66,6 +72,7 @@ router.post("/", (req, res) => {
 
     res.render("login", {
       log: "Recuperação completa! Agora faça login:",
+      user
     });
   }
 });
