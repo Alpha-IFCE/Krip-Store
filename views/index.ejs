@@ -245,8 +245,8 @@
                         <% camisas.forEach(camisa => { %>
                             <div class="slick-item col-3">
                                 <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
-                                    <div class="product-card card">
-                                        <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                    <div class="product-card card" data-product-id="<%= camisa._id %>">
+                                        <img src="<%= camisa.imageUrl %>" alt="" class="card-img-top">
                                         <div class="card-body">
                                             <span id="card-rate" data-rate="<%= camisa.rate %>">
                                                 <i class="bi bi-star-fill card-rate-star"></i>
@@ -302,8 +302,8 @@
                     <% if(index < 6) { %>
                         <div class="col-sm-6 col-md-4">
                             <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
-                                <div class="product-card card">
-                                    <img src="<%= camisa.img %>" alt="" class="card-img-top">
+                                <div class="product-card card" data-product-id="<%= camisa._id %>">
+                                    <img src="<%= camisa.imageUrl %>" alt="" class="card-img-top">
                                     <div class="card-body">
                                         <span id="card-rate" data-rate="<%= camisa.rate %>">
                                             <i class="bi bi-star-fill card-rate-star"></i>
