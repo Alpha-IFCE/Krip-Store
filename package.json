@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "server": "cd server && nodemon server.js"
+    "server": "cd server && nodemon server.js",
+    "seed": "cd server && node seed.js"
   },
   "dependencies": {
     "body-parser": "^1.20.0",
