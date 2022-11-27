@@ -30,13 +30,74 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // })
 
+client.connect().then(client => {
+    const db = client.db('krip');
+    const productsColletcion = db.collection('products');
+    const categoriesColletcion = db.collection('categories');
+    
+    app.get('/', (req, res) => {
+        res.json({ message: "Welcome to Food Ordering" })
+    });
+    
+    app.get('/products', async(req, res) => {
+        try {                
+            const products = await productsColletcion.find().toArray();
+    
+            if(products.length === 0) {
+                res.status(404).send({ error: "data not found" })
+            } else {
+                res.status(200).send({ data: products });
+            }
+        } catch (err) {
+            res.status(400).send({ error: err });
+            console.log(err)
+        }
+    });
+
+    app.get('/categories', async(req, res) => {
+        try {        
+            const categories = await categoriesColletcion.find().toArray();
+    
+            if(categories.length === 0) {
+                res.status(404).send({ error: "data not found" })
+            } else {
+                res.status(200).send({ data: categories });
+            }
+        } catch (err) {
+            res.status(400).send({ error: err });
+            console.log(err)
+        }
+    });
+
+    app.get('/categories/:category/products', async(req,res) => {
+        try {    
+            const category = req.params.category;
+
+            const productsInCategory = await productsColletcion.find({
+                category: category 
+            }).toArray();
+    
+            if(productsInCategory.length === 0) {
+                res.status(404).send({ error: "data not found" })
+            } else {
+                res.status(200).send({ data: productsInCategory });
+            }
+        } catch (err) {
+            res.status(400).send({ error: err });
+            console.log(err)
+        }
+
+    });
+}).catch(console.error).finally(client.close())
+
+/*
 app.get('/', (req, res) => {
     res.json({ message: "Welcome to Food Ordering" })
 });
 
 app.get('/products', async(req, res) => {
     try {
-        client.connect()
+        await client.connect()
 
         const db = client.db('krip');
         const productsColletcion = db.collection('products');
@@ -52,10 +113,10 @@ app.get('/products', async(req, res) => {
         res.status(400).send({ error: err });
         console.log(err)
     } finally {
-        client.close()
+        await client.close()
     }
 })
-
+*/
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

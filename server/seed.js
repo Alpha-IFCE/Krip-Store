@@ -2,20 +2,10 @@ const { faker } = require('@faker-js/faker');
 const { MongoClient } = require('mongodb');
 const _ = require('lodash');
 const env = require('dotenv').config({ path: '../.env' });
+const client = require('../client');
 
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
 
 async function main(){
-    const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.fqkpjyz.mongodb.net/?retryWrites=true&w=majority`;
-    const config = {
-        connectTimeoutMS: 5000,
-        socketTimeoutMS: 5000,
-        useUnifiedTopology: true
-    }
-      
-    const client = new MongoClient(uri, config)
-
     try {
         await client.connect();
 
@@ -25,7 +15,7 @@ async function main(){
         resetCollection(productsCollection);
         resetCollection(categoriesCollection);
         
-        let categories = ['camisas', 'moletons', 'calças', 'sapatos'].map((category) => { return { name: category } });
+        let categories = ['camisa', 'moleton', 'calca', 'sapato'].map((category) => { return { name: category } });
         await categoriesCollection.insertMany(categories);
 
         let imageUrls = [
