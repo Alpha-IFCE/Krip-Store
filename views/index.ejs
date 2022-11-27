@@ -32,7 +32,7 @@
     />
 
     <title>Krip Store</title>
-  </head>
+</head>
 
   <body>
     <%- include('partials/header', {user}); %>
@@ -176,7 +176,7 @@
                     <div id="section-4-carousel">
                         <div class="slick-dots"></div>
                         <% produtos.forEach(produto => { %>
-                            <div class="slick-item col-4">
+                            <div class="">
                                 <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
                                     <div class="product-card card" data-product-id="<%= produto._id %>">
                                         <img src="<%= produto.imageUrl %>" alt="" class="card-img-top">

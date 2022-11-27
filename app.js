@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/categoria", require("./routes/category-page"))
 app.use("/login", loginRouter);
 app.use("/signup", require("./routes/signup"));
 // app.use("/logado", require("./routes/logado"));

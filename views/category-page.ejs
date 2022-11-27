@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Lato&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
+    <link rel="stylesheet" href="../styles/mainlanding.css" />
+    <link rel="stylesheet" href="../styles/category-page.css" />
+
+    <script src="../scripts/popper.min.js"></script>
+    <script src="../scripts/bootstrap.js" defer></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+    <script type="text/javascript" src="../slick/slick.min.js" defer></script>
+
+    <script type="text/javascript" src="../scripts/index.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <title>Krip Store</title>
+</head>
+<body>
+    <%- include('partials/header', {user}); %>
+
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="row justify-content-center">
+                    <div class="input-wrapper flex-row align-items-center justify-content-between">
+                        <input type="search" id="search-bar" name="search-bar" class="bg-light w-100 h-100 px-4 font-lato text-dark fs-5" placeholder="Pesquisar" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="filter-item">
+                            <h4 >Tipo de Roupa</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="category" value="camisa" id="category-camisa">
+                                <label class="form-check-label" for="category-camisa">Camisa</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="category" value="calca" id="category-calca">
+                                <label class="form-check-label" for="category-calca">Calça</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="category" value="moleton" id="category-moleton">
+                                <label class="form-check-label" for="category-moleton">Moleton</label>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <h4>Preço</h4>
+                            <div>
+                                <label for="price-range-min" class="form-label">Mínimo: </label>
+                                <input type="range" class="form-range" id="price-range-min" min="0" max="150" step="1" value="0">
+                            </div>
+                            <div>
+                                <label for="price-range-max" class="form-label">Máximo: </label>
+                                <input type="range" class="form-range" id="price-range-max" min="0" max="150" step="1" value="150">
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <h4>Avaliação</h4>
+                            <div>
+                                <label for="rate-range-min" class="form-label">Mínimo: </label>
+                                <input type="range" class="form-range" id="rate-range-min" min="0" max="5" step="0.1" value="0">
+                            </div>
+                            <div>
+                                <label for="rate-range-max" class="form-label">Máximo: </label>
+                                <input type="range" class="form-range" id="rate-range-max" min="0" max="5" step="0.1" value="5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="row row-cols-3">
+                            <% produtos.forEach(produto => { %>
+                                <div class="slick-item">
+                                    <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
+                                        <div class="product-card card" data-product-id="<%= produto._id %>">
+                                            <img src="<%= produto.imageUrl %>" alt="" class="card-img-top">
+                                            <div class="card-body">
+                                                <span id="card-rate" data-rate="<%= produto.rate %>">
+                                                    <i class="bi bi-star-fill card-rate-star"></i>
+                                                    <i class="bi bi-star-fill card-rate-star"></i>
+                                                    <i class="bi bi-star-fill card-rate-star"></i>
+                                                    <i class="bi bi-star-fill card-rate-star"></i>
+                                                    <i class="bi bi-star-half card-rate-star"></i>
+                                                </span>
+                                                <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= produto.name %></h5>
+                                                <p class="card-text fs-6">
+                                                    <% if(produto.promotion) { %>
+                                                        <span class="text-decoration-line-through text-muted me-3">R$ <%= produto.price %></span>
+                                                        <span class="font-lato fw-bold text-dark">R$ <%= produto.promotion %></span>
+                                                    <% } else { %>
+                                                        <span class="font-lato fw-bold text-dark">R$ <%= produto.price %></span>
+                                                    <% } %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

@@ -12,6 +12,7 @@ body {
     rgba(229, 229, 229, 0) 100%
   );
   overflow-x: hidden;
+  background-repeat: no-repeat;
 }
 
 .svg-icon {

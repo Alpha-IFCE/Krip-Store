@@ -36,10 +36,10 @@ client.connect().then(client => {
     const categoriesColletcion = db.collection('categories');
     
     app.get('/', (req, res) => {
-        res.json({ message: "Welcome to Food Ordering" })
+        res.json({ message: "Welcome to Krip Store" })
     });
     
-    app.get('/products', async(req, res) => {
+    app.get('/produtos', async(req, res) => {
         try {                
             const products = await productsColletcion.find().toArray();
     
@@ -54,7 +54,7 @@ client.connect().then(client => {
         }
     });
 
-    app.get('/categories', async(req, res) => {
+    app.get('/categorias', async(req, res) => {
         try {        
             const categories = await categoriesColletcion.find().toArray();
     
@@ -69,7 +69,7 @@ client.connect().then(client => {
         }
     });
 
-    app.get('/categories/:category/products', async(req,res) => {
+    app.get('/categorias/:category/produtos', async(req,res) => {
         try {    
             const category = req.params.category;
 

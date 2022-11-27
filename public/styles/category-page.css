@@ -1,0 +1,15 @@
+.input-wrapper {
+    width: 85%;
+    height: 60px;
+    margin-bottom: 64px;
+}
+
+.input-wrapper input {
+    background-color: white;
+    outline: none;    
+    border-radius: 16px;
+}
+
+.product-card {
+    margin-bottom: 2em;
+}

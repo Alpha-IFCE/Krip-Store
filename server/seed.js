@@ -16,7 +16,7 @@ async function main(){
         resetCollection(productsCollection);
         resetCollection(categoriesCollection);
         
-        let categories = ['camisa', 'moleton', 'calca', 'sapato'].map((category) => { return { name: category } });
+        let categories = ['camisa', 'moleton', 'calca'].map((category) => { return { name: category } });
         await categoriesCollection.insertMany(categories);
 
         let imageUrls = [
@@ -44,8 +44,16 @@ async function main(){
                     'R$'
                 ) : null,
                 category: _.sample(categories).name,
-                imageUrl: _.sample(imageUrls)
             };
+
+            if(newProduct.category === 'calca') {
+                newProduct.imageUrl = imageUrls[5]
+            } else if (newProduct.category === 'moleton') {
+                newProduct.imageUrl = imageUrls[4]
+            } else {
+                newProduct.imageUrl = _.sample(imageUrls.slice(0,3))
+            }
+
             products.push(newProduct);
         }
         await productsCollection.insertMany(products);
