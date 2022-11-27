@@ -242,26 +242,26 @@
                 <div class="justify-content-start align-items-center">
                     <div id="section-4-carousel">
                         <div class="slick-dots"></div>
-                        <% camisas.forEach(camisa => { %>
+                        <% produtos.forEach(produto => { %>
                             <div class="slick-item col-3">
                                 <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
-                                    <div class="product-card card" data-product-id="<%= camisa._id %>">
-                                        <img src="<%= camisa.imageUrl %>" alt="" class="card-img-top">
+                                    <div class="product-card card" data-product-id="<%= produto._id %>">
+                                        <img src="<%= produto.imageUrl %>" alt="" class="card-img-top">
                                         <div class="card-body">
-                                            <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                            <span id="card-rate" data-rate="<%= produto.rate %>">
                                                 <i class="bi bi-star-fill card-rate-star"></i>
                                                 <i class="bi bi-star-fill card-rate-star"></i>
                                                 <i class="bi bi-star-fill card-rate-star"></i>
                                                 <i class="bi bi-star-fill card-rate-star"></i>
                                                 <i class="bi bi-star-half card-rate-star"></i>
                                             </span>
-                                            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= produto.name %></h5>
                                             <p class="card-text fs-6">
-                                                <% if(camisa.promotion) { %>
-                                                    <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
-                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                                <% if(produto.promotion) { %>
+                                                    <span class="text-decoration-line-through text-muted me-3">R$ <%= produto.price %></span>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= produto.promotion %></span>
                                                 <% } else { %>
-                                                    <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                                    <span class="font-lato fw-bold text-dark">R$ <%= produto.price %></span>
                                                 <% } %>
                                             </p>
                                         </div>
@@ -298,27 +298,27 @@
                 </li>
             </ul>
             <div id="section-5-products" class="row justify-content-center">
-                <% camisas.forEach((camisa, index) => { %>
+                <% produtos.forEach((produto, index) => { %>
                     <% if(index < 6) { %>
                         <div class="col-sm-6 col-md-4">
                             <a class="product-card-link" href="" target="_blank" rel="" style="border: none; padding: 0;text-decoration: none;">
-                                <div class="product-card card" data-product-id="<%= camisa._id %>">
-                                    <img src="<%= camisa.imageUrl %>" alt="" class="card-img-top">
+                                <div class="product-card card" data-product-id="<%= produto._id %>">
+                                    <img src="<%= produto.imageUrl %>" alt="" class="card-img-top">
                                     <div class="card-body">
-                                        <span id="card-rate" data-rate="<%= camisa.rate %>">
+                                        <span id="card-rate" data-rate="<%= produto.rate %>">
                                             <i class="bi bi-star-fill card-rate-star"></i>
                                             <i class="bi bi-star-fill card-rate-star"></i>
                                             <i class="bi bi-star-fill card-rate-star"></i>
                                             <i class="bi bi-star-fill card-rate-star"></i>
                                             <i class="bi bi-star-half card-rate-star"></i>
                                         </span>
-                                        <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= camisa.name %></h5>
+                                        <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3"><%= produto.name %></h5>
                                         <p class="card-text fs-6">
-                                            <% if(camisa.promotion) { %>
-                                                <span class="text-decoration-line-through text-muted me-3">R$ <%= camisa.price %></span>
-                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.promotion %></span>
+                                            <% if(produto.promotion) { %>
+                                                <span class="text-decoration-line-through text-muted me-3">R$ <%= produto.price %></span>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= produto.promotion %></span>
                                             <% } else { %>
-                                                <span class="font-lato fw-bold text-dark">R$ <%= camisa.price %></span>
+                                                <span class="font-lato fw-bold text-dark">R$ <%= produto.price %></span>
                                             <% } %>
                                         </p>
                                     </div>

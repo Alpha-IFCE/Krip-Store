@@ -6,7 +6,6 @@ const client = require("../client");
 
 
 const getData = async() => {
-    const products = await getProducts();
     const camisas = await getCamisas();
 
     return { products, camisas }
@@ -15,26 +14,29 @@ const getData = async() => {
 
 router.get("/", function (req, res, next) {
     
-    getCamisas().then((camisas) => {
+    getProdutos().then((produtos) => {
+        const produtosForCarousel = produtos.slice(0, 6)
+
+
         if (req.cookies["AuthToken"]) {
             res.render("index", {
                 LoginBtnMsg: "Logout",
                 loginBtnLink: "/logout",
-                camisas
+                produtos: produtosForCarousel
             });
         } else {
             res.render("index", {
                 LoginBtnMsg: "Login",
                 loginBtnLink: "/login",
-                camisas
+                produtos: produtosForCarousel
             });
         }
     })
     
 });
 
-const getCamisas = async() => {
-    const response = await fetch('http://localhost:8080/categories/camisa/products')
+const getProdutos = async() => {
+    const response = await fetch('http://localhost:8080/products')
     const data = await response.json()
     // console.log(data.data)
     return data.data

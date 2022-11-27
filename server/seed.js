@@ -3,6 +3,7 @@ const { MongoClient } = require('mongodb');
 const _ = require('lodash');
 const env = require('dotenv').config({ path: '../.env' });
 const client = require('../client');
+const { min } = require('lodash');
 
 
 async function main(){
@@ -23,15 +24,24 @@ async function main(){
             'https://cdn.shopify.com/s/files/1/0535/9527/5424/products/4_ca859c44-a341-4382-a857-d13211a3e8f5_540x.jpg?v=1647064791',
             'https://cdn.shopify.com/s/files/1/1748/2773/products/product-image-1655289000-sw_900x.jpg?v=1638103974',
             'https://cdn.shopify.com/s/files/1/0702/9411/products/Unsad1_600x.jpg?v=1634033890',
-            'https://cdn.shopify.com/s/files/1/0021/5629/8301/products/jpeg_19afa529-fdc3-481c-a2d1-36f48cad79bb_540x.jpg?v=1653747098'
+            'https://imgaz.staticbg.com/thumb/large/oaupload/ser1/banggood/images/E8/4B/8a1ea197-8dad-400b-9980-2133f91eee84.jpg.webp',
+            'https://img.ltwebstatic.com/images3_pi/2022/05/03/165156969418e4724e7d68c5bacc27f94692d593d0_thumbnail_600x.webp'
         ];
+
 
         let products = [];
         for (let i = 0; i < 40; i+=1) {
+            const price = faker.commerce.price(1, 150, 2, 'R$')
             let newProduct = {
                 name: faker.commerce.productName(),
                 rate: faker.datatype.float({min: 0.0, max: 5.0, precision: 0.1}),
-                price: faker.commerce.price(),
+                price,
+                promotion: _.sample([0,1,2,3]) === 0 ? faker.commerce.price(
+                    (parseFloat(price.slice(2)) * 0.5),
+                    (parseFloat(price.slice(2)) * 0.8), 
+                    2,
+                    'R$'
+                ) : null,
                 category: _.sample(categories).name,
                 imageUrl: _.sample(imageUrls)
             };
