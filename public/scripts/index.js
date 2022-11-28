@@ -1,8 +1,5 @@
+// Carousels
 window.onload = () => {
-    if(document.cookie){
-        console.log(document.cookie.indexOf('AuthToken') > -1)
-    }
-
     $('#section-4-carousel').slick({
         centerMode: true,
         centerPadding: '60px',
@@ -30,14 +27,6 @@ window.onload = () => {
             }
         ]
     });
-
-    document.querySelectorAll(".product-card .card-title").forEach(cardTitle => {
-        const text = cardTitle.innerHTML
-
-        if (text.length > 10) {
-            cardTitle.innerHTML = text.slice(0,15) + '...'
-        }
-    })
     
     $('#section-7-carousel').slick({
         centerMode: true,

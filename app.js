@@ -22,7 +22,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/categoria", require("./routes/category-page"))
+app.use("/produtos", require("./routes/category-page"))
+app.use("/produto", require("./routes/product-page"))
 app.use("/login", loginRouter);
 app.use("/signup", require("./routes/signup"));
 // app.use("/logado", require("./routes/logado"));
@@ -33,7 +34,7 @@ app.use("/verify", require("./routes/verify"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler

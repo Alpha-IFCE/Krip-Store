@@ -30,7 +30,7 @@ async function main(){
 
 
         let products = [];
-        for (let i = 0; i < 40; i+=1) {
+        for (let i = 0; i < 100; i+=1) {
             const price = faker.commerce.price(1, 150, 2, 'R$')
             let newProduct = {
                 name: faker.commerce.productName(),

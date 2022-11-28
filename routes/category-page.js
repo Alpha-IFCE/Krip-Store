@@ -20,7 +20,7 @@ const getProdutos = async(categoria) => {
     const response = await fetch(`http://localhost:8080/categorias/${categoria}/produtos`)
     const data = await response.json()
     // console.log(data.data)
-    return data.data
+    return data
 }
 
 // async function getUsers(client) {

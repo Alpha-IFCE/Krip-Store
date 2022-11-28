@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const client = require('../client');
+const { ObjectId } = require('mongodb');
 // const mongoose = require('mongoose');
 
 // mongoose
@@ -46,7 +47,28 @@ client.connect().then(client => {
             if(products.length === 0) {
                 res.status(404).send({ error: "data not found" })
             } else {
-                res.status(200).send({ data: products });
+                res.status(200).send(products);
+            }
+        } catch (err) {
+            res.status(400).send({ error: err });
+            console.log(err)
+        }
+    });
+
+    app.get('/produto/:produtoId', async(req, res) => {
+        try {          
+            const produtoId = ObjectId(req.params.produtoId)
+            console.log(produtoId)
+            const cursor = await productsColletcion.find({_id: produtoId}).toArray();
+            
+            console.log(cursor)
+
+            const produto = (cursor[0])
+
+            if(produto.length === 0) {
+                res.status(404).send({ error: "data not found" })
+            } else {
+                res.status(200).send(produto);
             }
         } catch (err) {
             res.status(400).send({ error: err });
@@ -61,7 +83,7 @@ client.connect().then(client => {
             if(categories.length === 0) {
                 res.status(404).send({ error: "data not found" })
             } else {
-                res.status(200).send({ data: categories });
+                res.status(200).send(categories);
             }
         } catch (err) {
             res.status(400).send({ error: err });
@@ -80,7 +102,7 @@ client.connect().then(client => {
             if(productsInCategory.length === 0) {
                 res.status(404).send({ error: "data not found" })
             } else {
-                res.status(200).send({ data: productsInCategory });
+                res.status(200).send(productsInCategory);
             }
         } catch (err) {
             res.status(400).send({ error: err });

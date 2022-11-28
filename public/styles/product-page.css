@@ -1,0 +1,52 @@
+body, header {
+    background-color: white;
+}
+
+
+main {
+    margin-bottom: 12%;
+}
+
+.amount-wrapper {
+    /* width: 6em; */
+}
+
+.amount-wrapper .btn {
+    width: 2em;
+}
+
+.amount-wrapper .btn:first-of-type{
+    border-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.amount-wrapper input + .btn{
+    border-radius: 0;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.amount-wrapper input {
+    width: 6em;
+    /* border: 1px solid #ffc107;
+    color: #ffc107;
+     */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number] {
+    border-radius: 0;
+}
