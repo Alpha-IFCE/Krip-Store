@@ -17,7 +17,7 @@ router.get("/:category", async (req, res, next) => {
 });
 
 const getProdutos = async(categoria) => {
-    const response = await fetch(`http://localhost:8080/categorias/${categoria}/produtos`)
+    const response = await fetch(`http://localhost:8080/produtos/${categoria}`)
     const data = await response.json()
     // console.log(data.data)
     return data

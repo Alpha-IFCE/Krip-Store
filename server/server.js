@@ -91,7 +91,7 @@ client.connect().then(client => {
         }
     });
 
-    app.get('/categorias/:category/produtos', async(req,res) => {
+    app.get('/produtos/:category', async(req,res) => {
         try {    
             const category = req.params.category;
 
