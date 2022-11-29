@@ -40,7 +40,7 @@
         <div class="container">
             <div class="content row">
                 <div class="col-5">
-                    <img src="<%= produto.imageUrl %>" alt="" class="w-100">
+                    <img src="<%= produto.imageUrl %>" alt="" class="w-100 rounded">
                 </div>
                 <div class="col-7">
                     <h2 class="font-lato h6 fw-bold text-danger text-uppercase my-3">Krip Store</h2>
@@ -56,10 +56,10 @@
                         <% } %>
                     </div>
 
-                    <div class="amount-wrapper my-4 d-flex flex-row">
-                        <button id="plus-btn" class="col-3 btn btn-warning text-center">+</button>
-                        <input type="number" name="produto-amount" id="produto-amount" class="col-6 form-control text-center border-warning text-warning fw-normal" value="0" min="0">
-                        <button id="sub-btn" class="col-3 btn btn-warning">-</button>
+                    <div class="amount-wrapper input-group my-4">
+                        <button id="sub-btn" class="btn btn-warning rounded-start" type="button">-</button>
+                        <input type="number" name="produto-amount" id="produto-amount" class="form-control text-center border-warning text-warning fw-normal" value="0" min="0">
+                        <button id="plus-btn" class="btn btn-warning rounded-end" type="button">+</button>
 
                         <script>
                             const input = document.querySelector('input[type=number]')
@@ -72,9 +72,17 @@
                         </script>
                     </div>
                     
-                    <div class="">
-                        <input type="text" name="" id="">
-                        <a></a>
+                    <div class="calcular-frete input-group my-4">
+                        <span class="input-group-text bg-warning text-dark border-warning">CEP</span>
+                        <input type="number" name="cep" id="cep-input" class="form-control border-warning text-warning text-warning" placeholder="Calcular Frete" aria-label="CEP" onkeydown="addCommas()">
+                        <button class="btn btn-warning rounded-end" type="button" id="button-addon2">Calcular</button>
+
+                        <script>
+                            function addCommas(event) {
+                                event.value = event.value.replace(/\D/g, '')
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                            }
+                        </script>
                     </div>
 
                     <div class="">

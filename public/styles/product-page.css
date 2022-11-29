@@ -2,36 +2,28 @@ body, header {
     background-color: white;
 }
 
-
 main {
     margin-bottom: 12%;
 }
 
 .amount-wrapper {
-    /* width: 6em; */
+    width: 10em;
 }
 
 .amount-wrapper .btn {
     width: 2em;
 }
 
-.amount-wrapper .btn:first-of-type{
-    border-radius: 0;
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-}
-
-.amount-wrapper input + .btn{
-    border-radius: 0;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
 .amount-wrapper input {
     width: 6em;
-    /* border: 1px solid #ffc107;
+}
+
+.calcular-frete {
+    width: 16em;
+}
+
+.calcular-frete input::placeholder {
     color: #ffc107;
-     */
 }
 
 /* Chrome, Safari, Edge, Opera */
