@@ -42,7 +42,7 @@ async function main(){
                     (parseFloat(price.slice(2)) * 0.8), 
                     2,
                     'R$'
-                ) : null,
+                ) : "",
                 category: _.sample(categories).name,
             };
 
