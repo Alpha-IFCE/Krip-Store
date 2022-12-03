@@ -32,23 +32,25 @@
     <title>Krip Store</title>
 </head>
 
-<body>
+<body style="background: white">
     <%- include('partials/header', {user}) %>
         <main>
             <div class="container">
                 <div class="content row">
                     <div class="col-5">
-                        <img src="<%= produto.imageUrl %>" alt="" class="w-100 rounded">
+                        <img src="<%= produto.imageUrl %>" alt="" class="w-100 rounded" />
                     </div>
                     <div class="col-7">
-                        <h2 class="font-lato h6 fw-bold text-secondary text-uppercase my-3">Krip Store</h2>
+                        <h2 class="font-lato h6 fw-bold text-secondary text-uppercase my-3">
+                            Krip Store
+                        </h2>
                         <h2 class="font-lato text-left mb-4">
                             <%= produto.name %>
                         </h2>
                         <p class="font-lato mb-4">
                             <%= produto.description %>
                         </p>
-                        <div class="fs-5">
+                        <div class="mb-4">
                             <% if(produto.promotion) { %>
                                 <span class="text-decoration-line-through text-muted">
                                     <%= produto.price %>
@@ -67,8 +69,8 @@
                                     <% } %>
                         </div>
 
-                        <div class="amount-wrapper input-group my-4 rounded">
-                            <button id="sub-btn" class="btn btn-dark rounded-start" type="button">-</button>
+                        <div class="amount-wrapper input-group mb-4 rounded">
+                            <button id="sub-btn" class="btn btn-dark" type="button">-</button>
                             <input type="number" name="produto-amount" id="produto-amount"
                                 class="form-control text-center border-dark text-dark fw-normal" value="0" min="0">
                             <button id="plus-btn" class="btn btn-dark rounded-end" type="button">+</button>
@@ -84,16 +86,22 @@
                             </script>
                         </div>
 
-                        <div class="calcular-frete input-group my-4 rounded">
+                        <div class="calcular-frete input-group mb-4 rounded">
                             <input type="number" name="cep" id="cep-input"
                                 class="form-control border-dark text-dark text-dark rounded-start"
-                                placeholder="Calcular Frete (CEP)" aria-label="CEP" onkeydown="addCommas()">
-                            <button class="btn btn-dark rounded-end" type="button" id="button-addon2">Calcular</button>
+                                placeholder="Calcular Frete (CEP)" aria-label="CEP" maxlength="8">
+                            <button class="btn btn-dark rounded-end" type="button"
+                                id="calcular-frete-btn">Calcular</button>
+                            <script src="../scripts/calcular-frete.js"></script>
+                        </div>
+
+                        <div class="valor-frete mb-4 d-none">
+                            <span>Valor do Frete: <span></span> </span>
                         </div>
 
                         <div class="">
                             <a class="btn btn-dark text-uppercase">Comprar</a>
-                            <a class="btn btn-outline-secondary text-capitalize ">
+                            <a class="btn btn-secondary text-capitalize ">
                                 <span>Adicionar ao carrinho</span>
                                 <i class="bi bi-cart"></i>
                             </a>
@@ -104,7 +112,6 @@
         </main>
 
         <%- include('partials/footer') %>
-
 </body>
 
 </html>
