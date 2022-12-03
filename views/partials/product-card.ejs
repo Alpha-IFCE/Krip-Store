@@ -1,5 +1,6 @@
-<a class="product-card-link" href="/produto/<%= produto._id %>" rel="" style="border: none; padding: 0;text-decoration: none;">
-    <div class="product-card card" data-produto="<%= JSON.stringify(produto) %>">
+<a class="product-card-link" href="/produto/<%= produto._id %>" rel=""
+    style="border: none; padding: 0;text-decoration: none;">
+    <div class="product-card card" data-produto="<%= JSON.stringify(produto) %>" style="background-color: #f6f6f6;">
         <img src="<%= produto.imageUrl %>" alt="" class="card-img-top">
         <div class="card-body">
             <div class="card-rate d-flex flex-row align-items-center">
@@ -10,16 +11,20 @@
                     <i class="bi bi-star-fill card-rate-star"></i>
                     <i class="bi bi-star-fill card-rate-star"></i>
                 </div>
-                <span class="ms-3 badge bg-secondary text-light font-lato"><%= produto.rate %></span>
+                <span class="ms-3 badge bg-secondary text-light font-lato">
+                    <%= produto.rate %>
+                </span>
             </div>
-            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3 text-truncate"><%= produto.name %></h5>
+            <h5 class="card-title font-frank fw-bold text-dark text-capitalize my-3 text-truncate">
+                <%= produto.name %>
+            </h5>
             <p class="card-text fs-6">
                 <% if(produto.promotion) { %>
                     <span class="text-decoration-line-through text-muted me-3">R$ <%= produto.price %></span>
                     <span class="font-lato fw-bold text-dark">R$ <%= produto.promotion %></span>
-                <% } else { %>
-                    <span class="font-lato fw-bold text-dark">R$ <%= produto.price %></span>
-                <% } %>
+                    <% } else { %>
+                        <span class="font-lato fw-bold text-dark">R$ <%= produto.price %></span>
+                        <% } %>
             </p>
         </div>
     </div>

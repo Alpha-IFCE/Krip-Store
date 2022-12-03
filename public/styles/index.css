@@ -37,7 +37,7 @@ main section {
     -webkit-transition: all ease 300ms;
 }
 
-#section-1-text a.btn::after{
+#section-1-text a.btn::after {
     content: "";
     width: 100%;
     height: 35px;
@@ -63,7 +63,7 @@ main section {
     transform: translateY(-5px);
 }
 
-#section-1-text a.btn:hover > #section-1 > a.btn::after {
+#section-1-text a.btn:hover>#section-1>a.btn::after {
     transform: translateY(-3px);
     z-index: -10;
 }
@@ -111,13 +111,13 @@ main section {
     background: #E5E5E5;
     opacity: 0.21;
     z-index: -10;
-    
+
     position: absolute;
     bottom: -2.5em;
     right: 0;
 }
 
-#section-3-text h2{
+#section-3-text h2 {
     /* font-size: 68px; */
     font-size: 4.25em;
     line-height: 115%;
@@ -153,17 +153,17 @@ main section {
 }
 
 #section-4 {
-    background: linear-gradient(180deg, #A5A5A5 0%, rgba(229, 229, 229, 0) 100%);
+    /* background: linear-gradient(180deg, #A5A5A5 0%, rgba(229, 229, 229, 0) 100%); */
     padding-top: 7.5em;
 }
 
-#section-4 h2{
+#section-4 h2 {
     /* font-size: 52px; */
     font-size: 3.25em;
     line-height: 67px;
 }
 
-#section-4 p{
+#section-4 p {
     /* font-size: 20px; */
     font-size: 1.25em;
     line-height: 180%;
@@ -189,7 +189,7 @@ main section {
     margin: 0 8px;
 }
 
-#section-4 .slick-center.slick-active + .slick-item + .slick-item {
+#section-4 .slick-center.slick-active+.slick-item+.slick-item {
     opacity: 0.5;
 }
 
@@ -225,7 +225,7 @@ a.product-card-link:hover {
     text-decoration: none;
 }
 
-.product-card img{
+.product-card img {
     /* height: 100%; */
     height: 16em;
 }
@@ -250,14 +250,14 @@ a.product-card-link:hover {
     line-height: 62px;
 }
 
-#section-5-menu  {
+#section-5-menu {
     gap: 2.5em;
     margin-bottom: 5em;
 }
 
 #section-5-menu .nav-item {
     /* font-size: 15px; */
-    font-size: 0,9375em;
+    font-size: 0, 9375em;
     line-height: 120%;
     letter-spacing: 0.115em;
 }

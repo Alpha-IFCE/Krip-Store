@@ -1,10 +1,4 @@
-main {
-    background-color: var(--black);
-    background-image: url("../images/asfalt-light-texture.png");
-    margin-bottom: 65px;
-}
-
-#main {
+.content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,45 +14,35 @@ form {
     height: 55%;
     min-height: 320px;
     padding: 32px;
-    background-color: white;
+    background-color: #f6f6f6;
     border-radius: 10px;
     gap: 20px;
     margin-top: auto;
 }
 
-form input[type="email"],
-form input[type="text"],
-form input[type="password"] {
+form input {
     border-bottom: 1px solid black;
+    background-color: transparent;
+
 }
 
-form input[type="email"]:focus,
-form input[type="text"]:focus,
-form input[type="password"]:focus {
+form input:focus {
     border: none;
     outline: none;
     border-bottom: 2px solid black;
 }
 
-form input[type="submit"] {
+form input {
     height: 48px;
-    padding: 4px 16px;
     font-size: 0.8em;
-    color: var(--black);
-    background-color: var(--light-gray);
 }
 
 form input[type="submit"] {
-    background-color: var(--salmon);
-    color: var(--white);
     font-weight: 600;
-    cursor: pointer;
     font-size: 1em;
+    cursor: pointer;
     transition: all ease 0.2s;
-}
-
-form input[type="submit"]:hover {
-    background-color: #d68268;
+    border: 1px solid black;
 }
 
 .form-inputs {
@@ -68,18 +52,39 @@ form input[type="submit"]:hover {
 }
 
 .form-options {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-form a {
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form div a {
     text-decoration: none;
-    align-self: center;
     color: var(--dark-gray);
     transition: all ease 0.2s;
 }
 
-form a:hover {
+form div a:hover {
     text-decoration: underline;
+    color: black;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+footer {
+    margin-top: auto;
 }

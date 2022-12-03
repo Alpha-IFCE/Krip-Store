@@ -27,7 +27,7 @@ window.onload = () => {
             }
         ]
     });
-    
+
     $('#section-7-carousel').slick({
         centerMode: true,
         centerPadding: '60px',
