@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
 
     const user = global.authTokens[req.cookies['AuthToken']]
 
-    res.render('category-page', {
+    res.render('search-page', {
         produtos,
         user
     });
@@ -21,7 +21,7 @@ router.get("/:category", async (req, res, next) => {
 
     const user = global.authTokens[req.cookies['AuthToken']]
 
-    res.render('category-page', {
+    res.render('search-page', {
         produtos,
         user
     });

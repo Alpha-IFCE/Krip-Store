@@ -16,7 +16,7 @@ router.get("/:produtoId", async (req, res) => {
 const getProduto = async (produtoId) => {
     const response = await fetch(`http://localhost:8080/produto/${produtoId}`);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
 };
 

@@ -18,15 +18,15 @@ const query = {
 }
 
 categories.forEach(category => {
-    if(window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1) !== 'produtos') {
-        if(category.value === window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1, -1)) {
+    if (window.location.pathname.slice(window.location.pathname.lastIndexOf('/') + 1) !== 'produtos') {
+        if (category.value === window.location.pathname.slice(window.location.pathname.lastIndexOf('/') + 1, -1)) {
             category.checked = true;
             query.category = category.value;
         } else {
             category.disabled = true
         }
     } else {
-        if(category.value === 'all') {
+        if (category.value === 'all') {
             category.checked = true
         }
     }
@@ -38,11 +38,11 @@ categories.forEach(category => {
 });
 
 const changeInput = (event) => {
-    if(event.target.id !== "search-bar") {
+    if (event.target.id !== "search-bar") {
         document.querySelector(`label[for=${event.target.id}] span`).innerHTML = event.target.value;
     }
 
-    if(event.type === 'change') {
+    if (event.type === 'change') {
         changeQuery[event.target.id]();
         filterCards();
     }
@@ -59,10 +59,12 @@ const filterCards = () => {
     cards.forEach(card => {
         const produto = JSON.parse(card.dataset.produto);
 
+        console.log(produto)
+
         let promotionMatch = true;
 
-        if(query.needPromotion === true) {
-            if(produto.promotion !== ""){
+        if (query.needPromotion === true) {
+            if (produto.promotion !== "") {
                 promotionMatch = true;
             } else {
                 promotionMatch = false;
@@ -70,15 +72,15 @@ const filterCards = () => {
         } else {
             promotionMatch = true;
         }
-        
+
         const priceMatch = produto.promotion ?
-        parseFloat(produto.promotion.slice(2)) >= query.minPrice && parseFloat(produto.promotion.slice(2)) <= query.maxPrice : 
-        parseFloat(produto.price.slice(2)) >= query.minPrice && parseFloat(produto.price.slice(2)) <= query.maxPrice;
+            parseFloat(produto.promotion.slice(2)) >= query.minPrice && parseFloat(produto.promotion.slice(2)) <= query.maxPrice :
+            parseFloat(produto.price.slice(2)) >= query.minPrice && parseFloat(produto.price.slice(2)) <= query.maxPrice;
 
         let categoryMatch = true;
 
-        if(query.category !== 'all') {
-            if(produto.category === query.category){
+        if (query.category !== 'all') {
+            if (produto.category === query.category) {
                 categoryMatch = true;
             } else {
                 categoryMatch = false;
@@ -91,7 +93,7 @@ const filterCards = () => {
 
         const searchMatch = produto.name.toLowerCase().indexOf(query.search.toLowerCase()) > -1
 
-        if(priceMatch && categoryMatch && rateMatch && promotionMatch && searchMatch) {
+        if (priceMatch && categoryMatch && rateMatch && promotionMatch && searchMatch) {
             filteredCards.push(card)
         }
 
@@ -102,12 +104,10 @@ const filterCards = () => {
 const displayFilteredCards = (filteredCards) => {
     cards.forEach(card => {
         // console.log(card.parentNode)
-        if(filteredCards.indexOf(card) > -1){
-            card.parentNode.parentNode.classList.add('d-inline-block');
+        if (filteredCards.indexOf(card) > -1) {
             card.parentNode.parentNode.classList.remove('d-none');
         } else {
             card.parentNode.parentNode.classList.add('d-none');
-            card.parentNode.parentNode.classList.remove('d-inline-block');
         }
     })
 }

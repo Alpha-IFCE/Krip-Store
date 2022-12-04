@@ -16,9 +16,35 @@ body {
     rgba(229, 229, 229, 0) 100%
   ); */
     /* background: rgb(246, 246, 246); */
-    background: #ffffff;
+    background: #f6f6f6;
     overflow-x: hidden;
     background-repeat: no-repeat;
+}
+
+.product-card {
+    /* background-color: #dee2e6; */
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+    border: 0;
+
+    transition: all ease 300ms;
+    -o-transition: all ease 300ms;
+    -moz-transition: all ease 300ms;
+    -webkit-transition: all ease 300ms;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.product-card-link {
+    border: none;
+    padding: 0;
+    text-decoration: none;
+}
+
+.product-card-link:hover {
+    text-decoration: none;
 }
 
 .svg-icon {
