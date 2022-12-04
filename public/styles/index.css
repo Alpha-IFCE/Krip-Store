@@ -215,13 +215,18 @@ main section {
     margin-left: 0;
 }
 
-.product-card img {
+#section-4 .product-card {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#section-4 .product-card img {
     /* height: 100%; */
     height: 16em;
 }
 
-.product-card:hover {
-    box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.5);
+#section-4 .product-card:hover {
+    /* box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.5); */
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 18px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     transform: translateY(0px);
 }
 
