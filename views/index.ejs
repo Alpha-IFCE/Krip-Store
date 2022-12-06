@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../styles/index.css" />
 
     <script src="../scripts/popper.min.js"></script>
-    <script src="../scripts/bootstrap.js" defer></script>
+    <script src="../scripts/bootstrap.js"></script>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
@@ -140,13 +140,15 @@
                             <div class="justify-content-start align-items-center">
                                 <div id="section-4-carousel">
                                     <div class="slick-dots"></div>
-                                    <% produtos.forEach(produto=> { %>
-                                        <div class="slick-slide">
-                                            <div class="sm-col-6 md-col-4 mx-2 mb-3">
-                                                <%- include('partials/product-card', {produto}) %>
+                                    <% produtos.forEach((produto, index)=> { %>
+                                        <% if(index < 10){ %>
+                                            <div class="slick-slide">
+                                                <div class="sm-col-6 md-col-4 mx-2 mb-3">
+                                                    <%- include('partials/product-card', {produto}) %>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <% }) %>
+                                            <% } %>
+                                                <% }) %>
                                 </div>
                             </div>
                         </div>
@@ -159,28 +161,46 @@
                         <h2 class="font-frank fw-bold text-dark text-capitalize text-center">
                             Our Products
                         </h2>
-                        <ul id="section-5-menu" class="nav justify-content-center mt-5">
-                            <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                                Hot
+                        <ul id="section-5-tabs" class="nav nav-tabs justify-content-center my-5 border-0"
+                            role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link font-lato fw-bolder text-dark text-uppercase border-0 fs-5 active"
+                                    aria-current="page" id="nav-hot-tab" data-bs-toggle="tab" data-bs-target="#hot"
+                                    type="button" role="tab" aria-controls="nav-hot"
+                                    aria-selected="true">Populares</button>
                             </li>
-                            <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                                On Sale
-                            </li>
-                            <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                                Trending Now
-                            </li>
-                            <li class="nav-item font-lato fw-bolder text-dark text-uppercase">
-                                New Arrival
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link font-lato fw-bolder text-dark text-uppercase border-0 fs-5"
+                                    id="nav-onsale-tab" data-bs-toggle="tab" data-bs-target="#onsale" type="button"
+                                    role="tab" aria-controls="nav-onsale" aria-selected="false">Em
+                                    Promoção</button>
                             </li>
                         </ul>
-                        <div id="section-5-products" class="row justify-content-center row-cols-3">
-                            <% produtos.forEach((produto, index)=> { %>
-                                <% if(index < 6) { %>
-                                    <div class="sm-col-6 md-col-4">
-                                        <%- include('partials/product-card', {produto}) %>
-                                    </div>
-                                    <% } %>
-                                        <% }) %>
+                        <div id="section-5-tab-content" class="tab-content">
+                            <div class="tab-pane active" id="hot" role="tabpanel" aria-labelledby="nav-hot-tab">
+                                <div class="row row-cols-3">
+                                    <% produtos.filter(produto=> produto.rate > 4).forEach((produto, index)=> { %>
+                                        <% if(index < 6) { %>
+                                            <div class="sm-col-6 md-col-4">
+                                                <%- include('partials/product-card', {produto}) %>
+                                            </div>
+                                            <% } %>
+                                                <% }) %>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="onsale" role="tabpanel" aria-labelledby="nav-onsale-tab">
+                                <div class="row row-cols-3">
+                                    <% produtos.filter((produto)=> produto.promotion !== "").forEach((produto, index)=>
+                                        { %>
+                                        <% if(index < 6) { %>
+                                            <div class="sm-col-6 md-col-4">
+                                                <%- include('partials/product-card', {produto}) %>
+                                            </div>
+                                            <% } %>
+                                                <% }) %>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

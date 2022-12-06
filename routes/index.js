@@ -6,13 +6,11 @@ const client = require("../client");
 router.get("/", async (req, res, next) => {
     const produtos = await getProdutos();
 
-    const produtosForCarousel = produtos.slice(0, 6);
-
     const user = global.authTokens[req.cookies["AuthToken"]];
 
     res.render("index", {
         user,
-        produtos: produtosForCarousel,
+        produtos,
     });
 });
 
