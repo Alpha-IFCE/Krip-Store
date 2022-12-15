@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../slick/slick.min.js" defer></script>
 
     <script type="text/javascript" src="../scripts/index.js" defer></script>
+    <script type="text/javascript" src="../scripts/product-page.js" defer></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 
@@ -72,31 +73,35 @@
                         <div class="amount-wrapper input-group mb-4 rounded">
                             <button id="sub-btn" class="btn btn-dark" type="button">-</button>
                             <input type="number" name="produto-amount" id="produto-amount"
-                                class="form-control text-center border-dark text-dark fw-normal" value="0" min="0">
+                                class="form-control text-center border-dark text-dark fw-normal" value="1" min="1">
                             <button id="plus-btn" class="btn btn-dark rounded-end" type="button">+</button>
-
-                            <script>
-                                const input = document.querySelector('input[type=number]')
-                                document.querySelector('#plus-btn').addEventListener('click', () => {
-                                    input.value = parseInt(input.value) + 1
-                                })
-                                document.querySelector('#sub-btn').addEventListener('click', () => {
-                                    parseInt(input.value) !== 0 && input.value--
-                                })
-                            </script>
                         </div>
 
                         <div class="calcular-frete input-group mb-4 rounded">
-                            <input type="number" name="cep" id="cep-input"
-                                class="form-control border-dark text-dark text-dark rounded-start"
-                                placeholder="Calcular Frete (CEP)" aria-label="CEP" maxlength="8">
+                            <input type="text" name="cep" id="cep-input"
+                                class="form-control border-dark text-dark rounded-start"
+                                placeholder="Calcular Frete (CEP)" aria-label="CEP" maxlength="9">
                             <button class="btn btn-dark rounded-end" type="button"
                                 id="calcular-frete-btn">Calcular</button>
-                            <script src="../scripts/calcular-frete.js"></script>
                         </div>
 
-                        <div class="valor-frete mb-4 d-none">
-                            <span>Valor do Frete: <span></span> </span>
+                        <div class="valores mb-4">
+                            <div id="valor-unidade">Valor do Produto: <span>
+                                    <% if(produto.promotion) { %>
+                                        <%= produto.promotion %>
+                                            <% } else {%>
+                                                produto.price
+                                                <% } %>
+                                </span> </div>
+                            <div id="quantidade">Quantidade desejada: <span>1</span></div>
+                            <div id="valor-frete">Valor do Frete: <span>Não Calculado</span></div>
+                            <div id="valor-total">Total: <span>
+                                    <% if(produto.promotion) { %>
+                                        <%= produto.promotion %>
+                                            <% } else {%>
+                                                produto.price
+                                                <% } %>
+                                </span></div>
                         </div>
 
                         <div class="">

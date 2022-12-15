@@ -47,6 +47,10 @@ body {
     text-decoration: none;
 }
 
+.comment-card {
+    height: 28em;
+}
+
 .svg-icon {
     width: 2.5em;
     height: 2.5em;

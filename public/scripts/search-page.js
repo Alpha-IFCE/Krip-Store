@@ -59,7 +59,7 @@ const filterCards = () => {
     cards.forEach(card => {
         const produto = JSON.parse(card.dataset.produto);
 
-        console.log(produto)
+        // console.log(produto)
 
         let promotionMatch = true;
 
@@ -91,7 +91,7 @@ const filterCards = () => {
 
         const rateMatch = produto.rate >= query.minRate && produto.rate <= query.maxRate;
 
-        const searchMatch = produto.name.toLowerCase().indexOf(query.search.toLowerCase()) > -1
+        const searchMatch = normalizeQuery(produto.name).indexOf(normalizeQuery(query.search)) > -1
 
         if (priceMatch && categoryMatch && rateMatch && promotionMatch && searchMatch) {
             filteredCards.push(card)
@@ -121,4 +121,9 @@ const changeQuery = {
     "category-camisa": () => query.category = 'camisa',
     "category-calca": () => query.category = 'calca',
     "category-moleton": () => query.category = 'moleton',
+}
+
+const normalizeQuery = (text) => {
+    // console.log(text.normalize('NFD').replace(/[^a-zA-Z\s]/g, ""))
+    return text.toLowerCase().normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }
