@@ -32,15 +32,15 @@
             </h5>
             <p class="card-text fs-6">
                 <% if(produto.promotion) { %>
-                <span class="text-decoration-line-through text-muted me-3"></span>
-                    <%= produto.price %></span
+                <span class="text-decoration-line-through text-muted me-3"
+                    ><%= produto.price %></span
                 >
-                <span class="font-lato fw-bold text-dark">
-                    <%= produto.promotion %></span
+                <span class="font-lato fw-bold text-dark"
+                    ><%= produto.promotion %></span
                 >
                 <% } else { %>
-                <span class="font-lato fw-bold text-dark">
-                    <%= produto.price %></span
+                <span class="font-lato fw-bold text-dark"
+                    ><%= produto.price %></span
                 >
                 <% } %>
             </p>
