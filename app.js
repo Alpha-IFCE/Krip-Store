@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/produtos", require("./routes/search-page"))
 app.use("/produto", require("./routes/product-page"))
+app.use("/cart", require("./routes/cart"))
 app.use("/login", loginRouter);
 app.use("/signup", require("./routes/signup"));
 // app.use("/logado", require("./routes/logado"));

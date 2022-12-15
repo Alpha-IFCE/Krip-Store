@@ -20,6 +20,7 @@ client.connect().then(client => {
     const db = client.db('krip');
     const productsColletcion = db.collection('products');
     const categoriesColletcion = db.collection('categories');
+    const cartCollection = db.collection('cart');
 
     app.get('/', (req, res) => {
         res.json({ message: "Welcome to Krip Store" })
@@ -119,6 +120,68 @@ client.connect().then(client => {
                     res.status(200).send(results)
                 }
             });
+    });
+
+    app.post('/add-to-cart', async (req, res) => {
+        const newCardRegister = req.body;
+
+        try {
+            await cartCollection.insertOne(newCardRegister);
+            res.send(true);
+        } catch (error) {
+            console.error(error);
+            res.send(error);
+        };
+    });
+
+    app.post('/remove-from-cart', async (req, res) => {
+        const cardRegister = req.body;
+
+        try {
+            await cartCollection.deleteOne(cardRegister);
+            res.send(true);
+        } catch (error) {
+            console.error(error);
+            res.send(error);
+        };
+    });
+
+    app.post('/is-on-cart', async (req, res) => {
+        const { produtoId, userId } = req.body;
+
+        const result = await cartCollection.find({
+            produtoId: produtoId,
+            userId: userId
+        }).toArray();
+        res.send(result);
+    });
+
+    app.post('/get-cart', async (req, res) => {
+        const { userId } = req.body;
+
+        try {
+            const cart = await cartCollection.find({ userId: userId }).toArray();
+
+            console.log('cart')
+            console.log(cart)
+
+            const produtosIds = cart.map(item => { return ObjectId(item.produtoId) });
+            console.log('produtosIds')
+            console.log(produtosIds)
+
+            const produtos = await productsColletcion.find({
+                _id: { $in: produtosIds }
+            }).toArray();
+
+            console.log('produtos')
+            console.log(produtos)
+
+            res.status(200).send(produtos)
+
+        } catch (error) {
+            console.error(error);
+            res.status(400).send(error);
+        };
     })
 }).catch(console.error).finally(client.close())
 

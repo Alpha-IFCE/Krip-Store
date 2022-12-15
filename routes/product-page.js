@@ -1,17 +1,80 @@
 const express = require("express");
 const router = express.Router();
-const frete = require("frete");
 
 router.get("/:produtoId", async (req, res) => {
     const produto = await getProduto(req.params.produtoId);
 
     const user = global.authTokens[req.cookies["AuthToken"]];
+    let isOnCart;
+    if (user) {
+        isOnCart = await getIsOnCart(req.params.produtoId, user._id);
+        isOnCart = isOnCart.length > 0;
+    } else {
+        isOnCart = false;
+    }
+    console.log(isOnCart)
 
     res.render("product-page", {
         user,
         produto,
+        isOnCart
     });
 });
+
+router.get('/:produtoId/add-to-cart', async (req, res) => {
+    const produtoId = req.params.produtoId;
+
+    const user = global.authTokens[req.cookies["AuthToken"]];
+
+    if (!user) {
+        res.redirect('/login');
+        return;
+    }
+
+    await fetch(`http://localhost:8080/add-to-cart`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({ produtoId, userId: user._id })
+    });
+
+    res.redirect('back');
+});
+
+router.get('/:produtoId/remove-from-cart', async (req, res) => {
+    const produtoId = req.params.produtoId;
+
+    const user = global.authTokens[req.cookies["AuthToken"]];
+
+    if (!user) {
+        res.redirect('/login');
+        return;
+    }
+
+    await fetch(`http://localhost:8080/remove-from-cart`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({ produtoId, userId: user._id })
+    });
+
+    res.redirect('back');
+});
+
+const getIsOnCart = async (produtoId, userId) => {
+    const response = await fetch(`http://localhost:8080/is-on-cart`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({ produtoId, userId })
+    });
+    const data = await response.json();
+    await console.log(data)
+    return data
+}
 
 const getProduto = async (produtoId) => {
     const response = await fetch(`http://localhost:8080/produto/${produtoId}`);
@@ -19,37 +82,5 @@ const getProduto = async (produtoId) => {
     // console.log(data);
     return data;
 };
-
-router.post("/:produtoId", async (req, res) => {
-    const produto = await getProduto(req.params.produtoId);
-
-    const user = global.authTokens[req.cookies["AuthToken"]];
-
-    const cep = req.body.cep;
-
-    await frete()
-        .cepOrigem(cep)
-        .peso(1)
-        .formato(frete.formatos.caixaPacote)
-        .comprimento(16)
-        .altura(2)
-        .largura(11)
-        .diametro(1)
-        //.maoPropria(frete.maoPropria.nao)
-        .valorDeclarado(50)
-        //.avisoRecebimento(frete.avisoRecebimento.sim)
-        .servico(frete.servicos.sedex)
-        .precoPrazo("13466321", function (err, results) {
-            console.log("erro: ", err);
-            console.log(results);
-        });
-
-    // console.log(a)
-
-    res.render("product-page", {
-        user,
-        produto,
-    });
-});
 
 module.exports = router;

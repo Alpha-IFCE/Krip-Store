@@ -95,7 +95,7 @@
                                 </span> </div>
                             <div id="quantidade">Quantidade desejada: <span>1</span></div>
                             <div id="valor-frete">Valor do Frete: <span>Não Calculado</span></div>
-                            <div id="valor-total">Total: <span>
+                            <div id="valor-total" class="fw-bold">Total: <span>
                                     <% if(produto.promotion) { %>
                                         <%= produto.promotion %>
                                             <% } else {%>
@@ -106,10 +106,19 @@
 
                         <div class="">
                             <a class="btn btn-dark text-uppercase">Comprar</a>
-                            <a class="btn btn-secondary text-capitalize ">
-                                <span>Adicionar ao carrinho</span>
-                                <i class="bi bi-cart"></i>
-                            </a>
+                            <% if(isOnCart) { %>
+                                <a href="/produto/<%= produto._id %>/remove-from-cart"
+                                    class="btn btn-secondary text-capitalize" id="add-to-cart">
+                                    <span>Remover do Carrinho</span>
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <% } else { %>
+                                    <a href="/produto/<%= produto._id %>/add-to-cart"
+                                        class="btn btn-secondary text-capitalize" id="add-to-cart">
+                                        <span>Adicionar ao carrinho</span>
+                                        <i class="bi bi-cart"></i>
+                                    </a>
+                                    <% } %>
                         </div>
                     </div>
                 </div>
