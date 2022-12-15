@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 
 router.get("/:category", async (req, res, next) => {
     const categoria = req.params.category
-    const produtos = await getProdutosByCategory(categoria.slice(0,-1))
+    const produtos = await getProdutosByCategory(categoria.slice(0, -1))
 
     const user = global.authTokens[req.cookies['AuthToken']]
 
@@ -27,14 +27,14 @@ router.get("/:category", async (req, res, next) => {
     });
 });
 
-const getProdutosByCategory = async(categoria) => {
+const getProdutosByCategory = async (categoria) => {
     const response = await fetch(`http://localhost:8080/produtos/${categoria}`)
     const data = await response.json()
     // console.log(data.data)
     return data
 }
 
-const getProdutos = async(categoria) => {
+const getProdutos = async () => {
     const response = await fetch(`http://localhost:8080/produtos`)
     const data = await response.json()
     // console.log(data.data)

@@ -43,10 +43,10 @@ client.connect().then(client => {
     app.get('/produto/:produtoId', async (req, res) => {
         try {
             const produtoId = ObjectId(req.params.produtoId)
-            console.log(produtoId)
+            // console.log(produtoId)
             const cursor = await productsColletcion.find({ _id: produtoId }).toArray();
 
-            console.log(cursor)
+            // console.log(cursor)
 
             const produto = (cursor[0])
 
@@ -111,9 +111,10 @@ client.connect().then(client => {
             .valorDeclarado(50)
             //.avisoRecebimento(frete.avisoRecebimento.sim)
             .servico(frete.servicos.sedex)
-            .precoPrazo("13466321", function (err, results) {
+            .precoPrazo("60040531", function (err, results) {
                 if (err) {
-                    res.status(400).send({ error: err })
+                    res.status(400).send({ error: err });
+                    console.log(JSON.parse(err))
                 } else {
                     res.status(200).send(results)
                 }
