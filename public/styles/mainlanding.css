@@ -155,7 +155,7 @@ main {
 }
 
 footer {
-    background-color: #777777;
+    background-color: #131313;
     color: white;
     text-align: center;
 }
@@ -200,7 +200,7 @@ footer {
 }
 
 .footer-bottom {
-    background-color: #4d4d4d;
+    background-color: #1b1b1b;
     padding: 16px;
 }
 
@@ -215,14 +215,14 @@ footer {
     width: 250px;
     color: white;
     padding: 10px;
-    background-color: #777777;
+    background-color: #131313;
     border: 1px solid white;
 }
 
 .contact-us button:hover {
-    background-color: black;
+    background-color: white;
     border: 1px solid black;
-    color: white;
+    color: black;
 }
 
 #footer-img img {
