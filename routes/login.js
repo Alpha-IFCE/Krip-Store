@@ -70,6 +70,7 @@ router.post("/", (req, res) => {
             } else {
                 res.render("login", {
                     log: "Email ou senha inválidos",
+                    user
                 });
             }
         })
