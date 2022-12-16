@@ -145,7 +145,7 @@
                 Valor do Produto:
                 <span>
                   <% if(produto.promotion) { %> <%= produto.promotion %> <% }
-                  else {%> produto.price <% } %>
+                  else {%> <%= produto.price %> <% } %>
                 </span>
               </div>
               <div id="quantidade">Quantidade desejada: <span>1</span></div>
@@ -156,7 +156,7 @@
                 Total:
                 <span>
                   <% if(produto.promotion) { %> <%= produto.promotion %> <% }
-                  else {%> produto.price <% } %>
+                  else {%> <%= produto.price %> <% } %>
                 </span>
               </div>
             </div>
