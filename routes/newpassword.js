@@ -24,14 +24,14 @@ router.get("/", (req, res, next) => {
     verifyUser(uid).then((result) => {
         if (result.email == email) {
             res.render("newpassword", {
-                log: "Digite a nova senha",
+                log: "Enter new password",
                 email,
                 uid,
                 user
             });
         } else {
             res.render("recover", {
-                log: "Link de recuperação inválido",
+                log: "Invalid recovery link",
                 user
             });
         }
@@ -64,14 +64,14 @@ router.post("/", (req, res) => {
             .sendMail({
                 from: emailUser,
                 to: email,
-                subject: "Alteração de senha",
+                subject: "Change password",
                 text: `Sua senha foi alterada. Caso tenha feito isso, desconsidere este aviso.`,
             })
             .then(console.log)
             .catch(console.error);
 
         res.render("login", {
-            log: "Recuperação completa! Agora faça login:",
+            log: "Complete recovery! Now log in:",
             user
         });
     }

@@ -12,12 +12,12 @@ router.get("/", (req, res, next) => {
         if (result.email == email) {
             verifyUser(client, uid, true).catch(console.dir);
             res.render("verificado", {
-                log: "Sua conta foi verificada",
+                log: "Your account has been verified",
                 user
             });
         } else {
             res.render("recover", {
-                log: "Link de verificação inválido",
+                log: "Invalid verification link",
                 user
             });
         }

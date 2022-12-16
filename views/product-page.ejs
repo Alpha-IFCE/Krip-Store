@@ -102,23 +102,23 @@
               <% if(isOnCart) { %>
               <a
                 href="/produto/<%= produto._id %>/remove-from-cart"
-                class="btn btn-secondary text-capitalize"
+                class="btn btn-secondary"
                 id="add-to-cart"
               >
-                <span>Remover do Carrinho</span>
+                <span>Remove from Cart</span>
                 <i class="bi bi-trash"></i>
               </a>
               <% } else { %>
               <a
                 href="/produto/<%= produto._id %>/add-to-cart"
-                class="btn btn-secondary text-capitalize"
+                class="btn btn-secondary"
                 id="add-to-cart"
               >
-                <span>Adicionar ao carrinho</span>
+                <span>Add to Cart</span>
                 <i class="bi bi-cart"></i>
               </a>
               <% } %>
-              <a class="btn btn-dark">Comprar</a>
+              <a class="btn btn-dark">Buy</a>
             </div>
 
             <div class="calcular-frete input-group mb-4">
@@ -127,7 +127,7 @@
                 name="cep"
                 id="cep-input"
                 class="form-control border-dark text-dark"
-                placeholder="Calcular Frete (CEP)"
+                placeholder="Calculate Shipping"
                 aria-label="CEP"
                 maxlength="9"
               />
@@ -136,27 +136,27 @@
                 type="button"
                 id="calcular-frete-btn"
               >
-                Calcular
+              Calculate
               </button>
             </div>
 
             <div class="valores mb-4">
               <div id="valor-unidade">
-                Valor do Produto:
+                Product Value:
                 <span>
                   <% if(produto.promotion) { %> <%= produto.promotion %> <% }
-                  else {%> produto.price <% } %>
+                  else {%> <%= produto.price %> <% } %>
                 </span>
               </div>
-              <div id="quantidade">Quantidade desejada: <span>1</span></div>
+              <div id="quantidade">Amount: <span>1</span></div>
               <div id="valor-frete">
-                Valor do Frete: <span>Não Calculado</span>
+                Shipping Value: <span>Not Calculated</span>
               </div>
               <div id="valor-total" class="fw-bold">
                 Total:
                 <span>
                   <% if(produto.promotion) { %> <%= produto.promotion %> <% }
-                  else {%> produto.price <% } %>
+                  else {%> <%= produto.price %> <% } %>
                 </span>
               </div>
             </div>

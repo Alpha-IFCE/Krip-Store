@@ -32,18 +32,17 @@ router.post("/", (req, res) => {
 
     const user = global.authTokens[req.cookies['AuthToken']]
 
-
     if (
-        password === confirmPassword ||
-        username !== "" ||
-        email !== "" ||
-        password !== "" ||
+        password === confirmPassword &&
+        username !== "" &&
+        email !== "" &&
+        password !== "" &&
         confirmPassword !== ""
     ) {
         checkUser(client, email).then(async (checked) => {
             if (checked) {
                 res.render("signup", {
-                    reg: "Usuário já cadastrado",
+                    reg: "User already registered",
                     user
                 });
             } else {
@@ -74,7 +73,7 @@ router.post("/", (req, res) => {
                         from: emailUser,
                         to: email,
                         subject: "Email de Cadastro",
-                        text: `Parabéns por se cadastrar ${username}. Para verificar seu email, clique no link: 127.0.0.1:3000/verify?email=${email}&uid=${uid}`,
+                        text: `Congratulations on registering ${username}. To verify your email, click on the link: 127.0.0.1:3000/verify?email=${email}&uid=${uid}`,
                     })
                     .then(console.log)
                     .catch(console.error);
@@ -84,7 +83,7 @@ router.post("/", (req, res) => {
         });
     } else {
         res.render("signup", {
-            reg: "Senha não corresponde ou campos vazios",
+            reg: "Passwords does not match or empty fields",
             user
         });
     }
@@ -101,7 +100,7 @@ async function register(client, email, username, hashedPassword) {
             password: hashedPassword,
             verified: false
         });
-        console.log(`Novo usuário cadastrado`);
+        console.log(`New registered user`);
     } finally {
         await client.close();
     }
@@ -114,10 +113,10 @@ async function checkUser(client, email) {
             email: email,
         });
         if (result !== null) {
-            console.log("sim, temos esse email");
+            console.log("yes, we have this email");
             return true;
         } else {
-            console.log("não, não temos esse email");
+            console.log("no, we don't have this email");
             return false;
         }
     } finally {

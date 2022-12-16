@@ -69,7 +69,7 @@ router.post("/", (req, res) => {
                 res.redirect("/");
             } else {
                 res.render("login", {
-                    log: "Email ou senha inválidos",
+                    log: "Invalid Email or Password",
                     user
                 });
             }

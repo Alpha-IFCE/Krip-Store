@@ -69,7 +69,7 @@ btnFrete.addEventListener('click', async () => {
         freteSpan.innerHTML = "R$" + frete.valor;
         calcularTotal();
     } else {
-        alert("Ocorreu algum erro ao calcular o frete")
+        alert("An error occurred on shipping calculation")
     }
 
     btnFrete.disabled = false;
