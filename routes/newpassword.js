@@ -65,7 +65,7 @@ router.post("/", (req, res) => {
                 from: emailUser,
                 to: email,
                 subject: "Change password",
-                text: `Sua senha foi alterada. Caso tenha feito isso, desconsidere este aviso.`,
+                text: `Your password has been changed. if you did that, disregard this warning.`,
             })
             .then(console.log)
             .catch(console.error);

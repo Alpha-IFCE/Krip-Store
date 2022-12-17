@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
     const user = global.authTokens[req.cookies['AuthToken']]
 
     res.render("recover", {
-        log: "Para recuperar sua senha, digite seu email: ",
+        log: "To recover your password, type your e-mail: ",
         emailTypeRecover: "email",
         submitTypeRecover: "submit",
         user
@@ -47,21 +47,21 @@ router.post("/", (req, res) => {
                 .sendMail({
                     from: emailUser,
                     to: email,
-                    subject: "Alterar senha",
-                    text: `Segue link para alterar a senha: 127.0.0.1:3000/newpassword?email=${email}&uid=${uid}`,
+                    subject: "Change Password",
+                    text: `Click on the link to change the password: 127.0.0.1:3000/newpassword?email=${email}&uid=${uid}`,
                 })
                 .then(console.log)
                 .catch(console.error);
 
             res.render("recover", {
-                log: "Email de recuperação de senha enviado",
+                log: "Password recovery email sent",
                 emailTypeRecover: "hidden",
                 submitTypeRecover: "hidden",
                 user
             })
         } else {
             res.render("recover", {
-                log: "Email não cadastrado!",
+                log: "Email not registered!",
                 emailTypeRecover: "email",
                 submitTypeRecover: "submit",
                 user

@@ -22,7 +22,7 @@ router.get("/", function (req, res, next) {
     const user = global.authTokens[req.cookies['AuthToken']]
 
     res.render("signup", {
-        reg: "Cadastro",
+        reg: "Register",
         user
     });
 });
@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
                 await register(client, email, username, hashedPassword);
 
                 res.render("login", {
-                    log: "Cadastro completo. Agora faça login",
+                    log: "Complete registration. Now log in",
                     user
                 });
 
@@ -72,7 +72,7 @@ router.post("/", (req, res) => {
                     .sendMail({
                         from: emailUser,
                         to: email,
-                        subject: "Email de Cadastro",
+                        subject: "Registration Email",
                         text: `Congratulations on registering ${username}. To verify your email, click on the link: 127.0.0.1:3000/verify?email=${email}&uid=${uid}`,
                     })
                     .then(console.log)
